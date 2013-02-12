@@ -8,3 +8,4 @@ publish/
 .externalToolBuilders/
 config.rb
 .settings/
+.sass-cache/
