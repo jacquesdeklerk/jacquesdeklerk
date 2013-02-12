@@ -9,6 +9,12 @@
 #   perishablepress.com/press/2006/01/10/stupid-htaccess-tricks/
 #   Sample .htaccess file of CMS MODx: modxcms.com
 
+#------------------------------------------------------------------------------------------
+# Point root to publish/
+#------------------------------------------------------------------------------------------
+
+Rewr
+
 
 
 # -----------------------------------------------------------------------------------------
@@ -364,7 +370,7 @@ FileETag None
   Options +FollowSymlinks
 # Options +SymLinksIfOwnerMatch
   RewriteEngine On
-# RewriteBase /
+ RewriteBase /jacquesdeklerk
 </IfModule>
 
 
