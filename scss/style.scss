@@ -3,6 +3,12 @@ $bodyColor: #D1D1D1;
 $textColor: hsl(358, 1%, 8%);
 $largestWidth: 1180px;
 
+@mixin vertAlignCenter($wdth) {
+  width: $wdth;
+  margin: 0 auto;
+  
+}
+
 body {
   background-color: $backgroundColor;
   color: $textColor;
@@ -10,9 +16,9 @@ body {
 }
 
 #container {
-  width: $largestWidth;
-  margin: 0 auto;
   background: $bodyColor;
+  
+  @include vertAlignCenter($largestWidth);
 }
 
 header {
