@@ -1,0 +1,23 @@
+$backgroundColor: #FEFEFE;
+$bodyColor: #D1D1D1;
+$textColor: hsl(358, 1%, 8%);
+$largestWidth: 1180px;
+
+body {
+  background-color: $backgroundColor;
+  color: $textColor;
+  font-family: 'Open sans',sans-serif;
+}
+
+#container {
+  width: $largestWidth;
+  margin: 0 auto;
+  background: $bodyColor;
+}
+
+header {
+  font-size: 3em;
+}
+
+
+
