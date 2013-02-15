@@ -5,14 +5,14 @@ $largestWidth: 1180px;
 
 @mixin vertAlignCenter($wdth) {
   width: $wdth;
-  margin: 0 auto;
-  
+  margin: 0 auto;  
 }
 
 body {
   background-color: $backgroundColor;
   color: $textColor;
   font-family: 'Open sans',sans-serif;
+  font-family: 'Questrial', sans-serif;
 }
 
 #container {
@@ -23,6 +23,10 @@ body {
 
 header {
   font-size: 3em;
+}
+
+#nav li {
+    display: inline;
 }
 
 

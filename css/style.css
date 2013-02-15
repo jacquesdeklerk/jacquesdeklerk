@@ -1,8 +1,9 @@
-/* line 12, ../scss/style.scss */
+/* line 11, ../scss/style.scss */
 body {
   background-color: #fefefe;
   color: #151414;
   font-family: 'Open sans',sans-serif;
+  font-family: "Questrial", sans-serif;
 }
 
 /* line 18, ../scss/style.scss */
@@ -15,4 +16,9 @@ body {
 /* line 24, ../scss/style.scss */
 header {
   font-size: 3em;
+}
+
+/* line 28, ../scss/style.scss */
+#nav li {
+  display: inline;
 }
