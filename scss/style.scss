@@ -11,8 +11,7 @@ $largestWidth: 1180px;
 body {
   background-color: $backgroundColor;
   color: $textColor;
-  font-family: 'Open sans',sans-serif;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Muli',sans-serif;
 }
 
 #container {
@@ -29,5 +28,7 @@ header {
     display: inline;
 }
 
-
+h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+}
 

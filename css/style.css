@@ -2,23 +2,27 @@
 body {
   background-color: #fefefe;
   color: #151414;
-  font-family: 'Open sans',sans-serif;
-  font-family: "Questrial", sans-serif;
+  font-family: 'Muli',sans-serif;
 }
 
-/* line 18, ../scss/style.scss */
+/* line 17, ../scss/style.scss */
 #container {
   background: #d1d1d1;
   width: 1180px;
   margin: 0 auto;
 }
 
-/* line 24, ../scss/style.scss */
+/* line 23, ../scss/style.scss */
 header {
   font-size: 3em;
 }
 
-/* line 28, ../scss/style.scss */
+/* line 27, ../scss/style.scss */
 #nav li {
   display: inline;
+}
+
+/* line 31, ../scss/style.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
 }
