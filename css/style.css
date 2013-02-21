@@ -1,4 +1,143 @@
-/* line 25, ../scss/style.scss */
+/* line 4, ../scss/_icons.scss */
+.logo {
+  text-indent: -9992px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url(img/sprite.png) no-repeat;
+  position: relative;
+  margin: 0 4px 4px 0;
+}
+/* line 12, ../scss/_icons.scss */
+.logo:before {
+  content: '';
+  background: url(img/sprite.png) no-repeat;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* line 25, ../scss/_icons.scss */
+.logo:last-child {
+  margin-right: 0;
+}
+
+/* line 29, ../scss/_icons.scss */
+.logo-html5, .logo-html5:before {
+  width: 30px;
+  height: 42px;
+}
+
+/* line 34, ../scss/_icons.scss */
+.logo-css3, .logo-css3:before {
+  width: 32px;
+  height: 36px;
+}
+
+/* line 39, ../scss/_icons.scss */
+.logo-jquery, .logo-jquery:before {
+  width: 75px;
+  height: 18px;
+}
+
+/* line 44, ../scss/_icons.scss */
+.logo-php, .logo-php:before {
+  width: 39px;
+  height: 19px;
+}
+
+/* line 49, ../scss/_icons.scss */
+.logo-git, .logo-git:before {
+  width: 38px;
+  height: 37px;
+}
+
+/* line 54, ../scss/_icons.scss */
+.logo-design, .logo-design:before {
+  width: 35px;
+  height: 35px;
+}
+
+/* line 67, ../scss/_icons.scss */
+.logo-wordpress, .logo-wordpress:before {
+  width: 38px;
+  height: 36px;
+}
+
+/* line 78, ../scss/_icons.scss */
+.logo-html5 {
+  background-position: 0 0;
+}
+/* line 81, ../scss/_icons.scss */
+.logo-html5:before {
+  background-position: 0 -42px;
+}
+
+/* line 86, ../scss/_icons.scss */
+.logo-css3 {
+  background-position: -30px 0;
+}
+/* line 89, ../scss/_icons.scss */
+.logo-css3:before {
+  background-position: -31px -42px;
+}
+
+/* line 94, ../scss/_icons.scss */
+.logo-jquery {
+  background-position: -288px 0;
+}
+/* line 97, ../scss/_icons.scss */
+.logo-jquery:before {
+  background-position: -288px -42px;
+}
+
+/* line 103, ../scss/_icons.scss */
+.logo-php {
+  background-position: -243px 0;
+}
+/* line 106, ../scss/_icons.scss */
+.logo-php:before {
+  background-position: -243px -42px;
+}
+
+/* line 112, ../scss/_icons.scss */
+.logo-git {
+  background-position: -107px 0;
+}
+/* line 115, ../scss/_icons.scss */
+.logo-git:before {
+  background-position: -107px -42px;
+}
+
+/* line 120, ../scss/_icons.scss */
+.logo-design {
+  background-position: -153px 0;
+}
+/* line 123, ../scss/_icons.scss */
+.logo-design:before {
+  background-position: -153px -42px;
+}
+
+/* line 141, ../scss/_icons.scss */
+.logo-wordpress {
+  background-position: -67px 0;
+}
+/* line 144, ../scss/_icons.scss */
+.logo-wordpress:before {
+  background-position: -67px -42px;
+}
+
+/* line 156, ../scss/_icons.scss */
+.logo:hover:before {
+  opacity: 1;
+}
+
+/* line 49, ../scss/style.scss */
 body {
   background-color: #fefefe;
   color: #151414;
@@ -6,23 +145,16 @@ body {
   font-style: normal;
 }
 
-/* line 32, ../scss/style.scss */
-#container {
-  background: #d1d1d1;
-  width: 1180px;
-  margin: 0 auto;
-}
-
-/* line 39, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
 #masthead h1 {
   font-size: 2.4em;
   margin-bottom: 0;
 }
-/* line 44, ../scss/style.scss */
+/* line 63, ../scss/style.scss */
 #masthead h2 {
   margin-bottom: 0;
 }
-/* line 48, ../scss/style.scss */
+/* line 67, ../scss/style.scss */
 #masthead hgroup {
   background: url(../img/css/logo.gif) no-repeat;
   background-size: 120px;
@@ -32,31 +164,203 @@ body {
   display: table-cell;
 }
 
-/* line 56, ../scss/style.scss */
+/* line 75, ../scss/style.scss */
+.images, .column {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* line 84, ../scss/style.scss */
+.images {
+  width: 100%;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  display: inline;
+}
+@media (min-width: 50em) {
+  /* line 84, ../scss/style.scss */
+  .images {
+    width: 47.36842%;
+    float: right;
+    margin-right: 0;
+  }
+}
+@media (min-width: 70em) {
+  /* line 84, ../scss/style.scss */
+  .images {
+    width: 65.51724%;
+    float: right;
+    margin-right: 0;
+  }
+}
+
+/* line 98, ../scss/style.scss */
+.article-body, .project-head {
+  width: 100%;
+  float: right;
+  margin-right: 0;
+  #margin-left: -1em;
+  display: inline;
+}
+@media (min-width: 50em) {
+  /* line 98, ../scss/style.scss */
+  .article-body, .project-head {
+    width: 47.36842%;
+    float: left;
+    margin-right: 5.26316%;
+  }
+}
+@media (min-width: 70em) {
+  /* line 98, ../scss/style.scss */
+  .article-body, .project-head {
+    width: 31.03448%;
+    float: left;
+    margin-right: 3.44828%;
+  }
+}
+
+/* line 112, ../scss/style.scss */
 #nav li {
   display: inline;
 }
 
-/* line 60, ../scss/style.scss */
+/* line 116, ../scss/style.scss */
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   font-weight: normal;
 }
 
-/* line 65, ../scss/style.scss */
+/* line 121, ../scss/style.scss */
 .container {
   margin: 0 auto;
   width: 90%;
+  max-width: 1920px;
   padding: 20px;
+  *zoom: 1;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 38, c:/Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* line 71, ../scss/style.scss */
-header, footer {
+/* line 130, ../scss/style.scss */
+#masthead, #mastfooter {
   background: #101010;
   color: #fff;
 }
 
-/* line 76, ../scss/style.scss */
-.column {
-  width: 33%;
+/* line 135, ../scss/style.scss */
+article {
+  border-bottom: 1px solid #999999;
+  padding: 20px 0 20px 0;
+  padding-top: 30px;
+  position: relative;
+  /*@include transition(all 0.5s ease);*/
+  padding-left: 2em;
+  margin-left: -2em;
+}
+/* line 146, ../scss/style.scss */
+article .project-head, article .images {
+  cursor: pointer;
+}
+
+/* line 152, ../scss/style.scss */
+.js .inactive {
+  height: 200px;
+  overflow-y: hidden;
+  overflow-x: visible;
+}
+
+/* line 158, ../scss/style.scss */
+.expander {
+  background: url(img/sprite.png) no-repeat 0 -85px;
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  left: -12px;
+  opacity: 0;
+}
+
+/* line 169, ../scss/style.scss */
+.focused .expander {
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transform: translateX(-15px);
+  -moz-transform: translateX(-15px);
+  -ms-transform: translateX(-15px);
+  -o-transform: translateX(-15px);
+  transform: translateX(-15px);
+}
+
+/* line 175, ../scss/style.scss */
+.expanded .expander {
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transform: translateX(-15px) rotate(-45deg);
+  -moz-transform: translateX(-15px) rotate(-45deg);
+  -ms-transform: translateX(-15px) rotate(-45deg);
+  -o-transform: translateX(-15px) rotate(-45deg);
+  transform: translateX(-15px) rotate(-45deg);
+}
+
+/* line 182, ../scss/style.scss */
+.js .inactive p, .js .inactive .article-footer {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* line 186, ../scss/style.scss */
+.project p, .project .article-footer {
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+/* line 190, ../scss/style.scss */
+.project-heading {
+  position: relative;
+}
+
+/*@include columns(3);*/
+/* line 196, ../scss/style.scss */
+article img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+  margin-top: 1em;
+}
+
+/* line 205, ../scss/style.scss */
+.technologies {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 210, ../scss/style.scss */
+.annum {
+  border-top: 1px solid #101010;
+  position: relative;
+}
+
+/* line 215, ../scss/style.scss */
+.annum-heading {
+  position: absolute;
+  top: -0.7em;
+  left: -2.5em;
 }

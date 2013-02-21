@@ -3,13 +3,26 @@ $bodyColor: #D1D1D1;
 $barColor: #101010;
 $textColor: hsl(358, 1%, 8%);
 $padding: 20px;
-
-
 $largestWidth: 1180px;
+$expanderWidth: 24px;
+
+$total-columns  : 2;             
+$column-width   : 4em;            
+$gutter-width   : 1em;            
+$grid-padding   : $gutter-width; 
+
+$container-style: fluid;
+
+@import "susy";
+@import "icons";
+
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
 
 @mixin vertAlignCenter($wdth) {
   width: $wdth;
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 
 @mixin logoSize($wdth) {
@@ -18,8 +31,19 @@ $largestWidth: 1180px;
     height: $wdth;
 }
 
-@mixin colWidth($cols) {
-    width: floor( percentage((1/$cols)) );
+@mixin columns($cols) {
+    .column{
+        width: floor( percentage((1/$cols)) );
+    }
+    
+    .images{
+        width: floor( percentage(2*(1/$cols)) );               
+    }
+}
+
+
+@mixin paddingTopBottom() {
+    padding: $padding 0 $padding 0;
 }
 
 body {
@@ -29,11 +53,6 @@ body {
   font-style: normal;
 }
 
-#container {
-  background: $bodyColor;
-  
-  @include vertAlignCenter($largestWidth);
-}
 
 #masthead {    
     h1{
@@ -42,7 +61,7 @@ body {
     }
     
     h2{
-       margin-bottom: 0; 
+       margin-bottom: 0;
     }
     
     hgroup {
@@ -51,6 +70,43 @@ body {
         vertical-align: middle;
         display: table-cell;
     }            
+}
+
+.images, .column {
+    display: inline-block; 
+    vertical-align: top;
+}
+
+
+$media-layout-medium: 50em 4;
+$media-layout-large: 70em 6;
+
+.images {
+    @include span-columns(2 omega,2);
+    
+    @include at-breakpoint($media-layout-medium){
+       
+       @include span-columns(2 omega,4); 
+    }
+    
+     @include at-breakpoint($media-layout-large){
+       
+       @include span-columns(4 omega,6); 
+    }
+}
+
+.article-body, .project-head{
+    @include span-columns(2 omega,2);
+    
+    @include at-breakpoint($media-layout-medium){
+       
+       @include span-columns(2,4); 
+    }
+    
+    @include at-breakpoint($media-layout-large){
+       
+       @include span-columns(2,6); 
+    }
 }
 
 #nav li {
@@ -65,14 +121,101 @@ h1,h2,h3,h4,h5,h6 {
 .container {
     margin: 0 auto;
     width: 90%;
+    max-width: 1920px;
     padding: $padding;
+    
+    @include container;
 }
 
-header, footer {
+#masthead, #mastfooter {
     background: $barColor;
     color: #fff;
 }
 
-.column {
-    @include colWidth(3);
+article {
+    border-bottom: 1px solid #999;
+    @include paddingTopBottom();  
+    padding-top: 30px;
+    position: relative;
+    
+    /*@include transition(all 0.5s ease);*/
+
+   padding-left: 2em;
+   margin-left: -2em;
+
+    .project-head, .images {
+        cursor: pointer;
+    }
+    
 }
+
+.js .inactive /*do only if javascript active*/ {
+    height: 200px;
+    overflow-y: hidden;
+    overflow-x: visible;
+}
+
+.expander {
+    background: url(img/sprite.png) no-repeat 0 -85px;
+    display: block;
+    position: absolute;
+    width: $expanderWidth;
+    height: $expanderWidth;
+    top: 0;
+    left: - $expanderWidth/2;   
+    opacity: 0;
+}
+
+.focused .expander{
+    opacity: 1;
+     @include transition(all 0.3s ease);  
+    @include transform( translateX(-15px) );
+}
+
+.expanded .expander{
+    opacity: 1;
+    @include transition(all 0.3s ease);  
+    @include transform(translateX(-15px) rotate(-45deg) );
+}
+
+
+.js .inactive p, .js .inactive .article-footer{  
+    @include opacity(0);
+}
+
+.project p, .project .article-footer {  
+    @include transition(opacity 0.2s ease);    
+}
+
+.project-heading {
+    position: relative;
+}
+
+/*@include columns(3);*/
+
+article img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: top;
+    margin-top: 1em;
+}
+
+
+
+.technologies {
+    margin: 0;
+    padding: 0;
+}
+
+.annum {
+    border-top: 1px solid $barColor;
+    position: relative;
+}
+
+.annum-heading {
+    position: absolute;
+    top: -0.7em;
+    left: -2.5em;    
+}
+
+
