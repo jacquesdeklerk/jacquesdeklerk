@@ -1,10 +1,23 @@
 $backgroundColor: #FEFEFE;
 $bodyColor: #D1D1D1;
 $barColor: #101010;
+$highlightColor: #00c0ff;
 $textColor: hsl(358, 1%, 8%);
 $padding: 20px;
 $largestWidth: 1180px;
 $expanderWidth: 24px;
+$articleNegativeMargin: 3em;
+$closeButtonColor: #ec0000;
+$contactsButtonHeight: 32px;
+$contactsButtonMarginTop: 15px;
+$contactsButtonMarginBottom: 7px;
+$sprite: 'img/sprite.png';
+$formWidth: 300px;
+$contactButtonsSpace: 55;
+$contactButtonsBottomSpace: $contactButtonsSpace + px;
+
+$basepx: 16;
+
 
 $total-columns  : 2;             
 $column-width   : 4em;            
@@ -13,12 +26,28 @@ $grid-padding   : $gutter-width;
 
 $container-style: fluid;
 
+$breakpoint1: 50em;
+$breakpoint2: 70em;
+$breakpoint60: 60em;
+
+$media-layout-medium: $breakpoint1 4;
+$media-layout-large: $breakpoint2 6;
+
 @import "susy";
 @import "icons";
 
 @import "compass/css3/transition";
 @import "compass/css3/transform";
 @import "compass/css3/opacity";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/filter";
+@import "compass/css3/box-sizing";
+
+// Convert PX to EM global function
+@function pxtoem($px, $basepx){
+    @return ($px/$basepx)+0em;
+}
 
 @mixin vertAlignCenter($wdth) {
   width: $wdth;
@@ -46,6 +75,11 @@ $container-style: fluid;
     padding: $padding 0 $padding 0;
 }
 
+/*border box for all elements*/
+*{
+    @include box-sizing('border-box');
+}
+
 body {
   background-color: $backgroundColor;
   color: $textColor;
@@ -55,21 +89,57 @@ body {
 
 
 #masthead {    
+    position: relative;
+    z-index: 9999;  
+    margin-bottom: pxtoem($contactButtonsSpace, $basepx) + 1em; /*for contact icons*/ 
+    
+    .container {        
+        background: $barColor;
+        
+        z-index: 3;
+        
+        @media (min-width: $breakpoint60) {
+            z-index: 1;
+        }      
+    }
+         
+    
     h1{
        font-size: 2.4em;
        margin-bottom: 0; 
+       display: inline-block;
     }
     
     h2{
-       margin-bottom: 0;
+       margin-bottom: 0;       
     }
     
     hgroup {
-        background: url(../img/css/logo.gif) no-repeat;        
-        @include logoSize(120px);
+        /*background: url(../img/css/logo.gif) no-repeat;*/        
+        /*@include logoSize(120px);*/
         vertical-align: middle;
-        display: table-cell;
-    }            
+        display: inline-block;
+        position: relative;
+        z-index: 1000;
+    } 
+    @media (min-width: $breakpoint1) {
+        padding-bottom: 0;
+    } 
+    
+    @media (min-width: $breakpoint60) {
+        margin-bottom: 1em;
+    }  
+        
+}
+
+#logo {
+    width: 120px;
+    display: inline-block;
+} 
+
+#content{
+   position: relative;
+   z-index: 1; 
 }
 
 .images, .column {
@@ -77,9 +147,6 @@ body {
     vertical-align: top;
 }
 
-
-$media-layout-medium: 50em 4;
-$media-layout-large: 70em 6;
 
 .images {
     @include span-columns(2 omega,2);
@@ -119,12 +186,17 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .container {
-    margin: 0 auto;
-    width: 90%;
+    
     max-width: 1920px;
     padding: $padding;
+    position: relative;
     
     @include container;
+    
+    @media (min-width: $breakpoint1) {
+        margin: 0 auto;
+        width: 90%; 
+    }
 }
 
 #masthead, #mastfooter {
@@ -133,37 +205,79 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 article {
-    border-bottom: 1px solid #999;
+    /*border-bottom: 1px solid #999;*/
     @include paddingTopBottom();  
     padding-top: 30px;
     position: relative;
     
     /*@include transition(all 0.5s ease);*/
 
-   padding-left: 2em;
-   margin-left: -2em;
+   padding-left: $articleNegativeMargin;
+   margin-left: -$articleNegativeMargin;
 
     .project-head, .images {
         cursor: pointer;
-    }
-    
+    }    
 }
 
 .js .inactive /*do only if javascript active*/ {
-    height: 200px;
+    height: 160px;
     overflow-y: hidden;
     overflow-x: visible;
 }
 
 .expander {
-    background: url(img/sprite.png) no-repeat 0 -85px;
-    display: block;
+    /*background: url(img/sprite.png) no-repeat 0 -85px;*/
+    display: none;
+    
+    @media (min-width: $breakpoint1) {
+        display: block;
+    }  
+
     position: absolute;
     width: $expanderWidth;
     height: $expanderWidth;
     top: 0;
-    left: - $expanderWidth/2;   
+    left: - $expanderWidth;   
     opacity: 0;
+    text-decoration: none;
+    font-weight: bold;
+    color:$textColor;
+    background: #fff;
+    z-index: 1;
+    
+    @include border-radius($expanderWidth);
+    
+    border: 1px solid $textColor;
+    
+    $iconX: 12px;
+    $iconY: 2px;
+    
+    box-sizing: content-box;
+    
+    
+    &:after {
+        content: '';
+        left:$expanderWidth/2 - $iconX/2;
+        top:$expanderWidth/2 - $iconY/2;
+        width:$iconX;
+        height:$iconY;
+        background:$textColor;
+        display: block;
+        position: absolute;
+    }
+
+    &:before {
+        content: '';
+        z-index:10;
+        left:$expanderWidth/2 - $iconY/2;
+        top:$expanderWidth/2 - $iconX/2;
+        width:$iconY;
+        height:$iconX;
+        background:$textColor;
+        display: block;
+        position: absolute;
+    }
 }
 
 .focused .expander{
@@ -176,6 +290,15 @@ article {
     opacity: 1;
     @include transition(all 0.3s ease);  
     @include transform(translateX(-15px) rotate(-45deg) );
+    
+     &:after {
+         background:$closeButtonColor;
+     }
+     
+     &:before {
+         background:$closeButtonColor;
+     }
+     
 }
 
 
@@ -200,11 +323,65 @@ article img {
     margin-top: 1em;
 }
 
+.article-divider {
+    margin-top: 0;
+}
+
+.transition{
+    @include transition(all 0.2s ease); 
+    @include transform(translateZ(0));  
+}
+
+.list-heading {
+    margin-bottom: 4px;
+    color: hsl(0, 1%, 50%);
+}
+
+.button {
+    background: #bababa;
+    padding: 5px 7px;
+    text-decoration: none;
+    margin-top: 1em;
+    display: inline-block;
+    color: $backgroundColor;
+    
+    @include border-radius(5px);
+    
+    &:hover {
+        color: $highlightColor;
+        background: #dcdcdc;
+        @include box-shadow();
+    }
+}
+
+input, textarea {
+    font-family: 'Muli',sans-serif;
+    border: 1px solid hsl(0, 1%, 50%); 
+    padding: 2px;
+}
+
+.external-link {
+    position: relative;
+    padding-right: 24px;
+    
+    &:after{
+        content: '';
+        position: absolute;
+        top: 8px;
+        right: 3px;
+        display: block;
+        width: 13px;
+        height: 13px;
+        background: url(img/sprite.png) no-repeat 0 -112px;
+        
+    }
+}
+
 
 
 .technologies {
     margin: 0;
-    padding: 0;
+    padding: 4px 0 0 0;
 }
 
 .annum {
@@ -214,8 +391,199 @@ article img {
 
 .annum-heading {
     position: absolute;
+    
+    top: -1.3em;
+    left: 0;
+    
+    @media (min-width: $breakpoint1) {
     top: -0.7em;
-    left: -2.5em;    
+    left: -2.5em;
+  }
+           
 }
+
+#technologies /*top footer bar*/{
+    
+    background: hsl(0, 1%, 80%);
+    
+    height: 42px;
+    
+    .container {
+        padding: 0;
+    }
+}
+
+#html5 img{
+    margin-top: -11px;
+}
+
+#contact {
+    
+    position: relative;
+    z-index: 100;
+    
+    ul {
+        margin: 0;
+        padding: 0;        
+    }
+    
+    input {
+        display: block;
+    }
+    
+    
+}
+
+.no-js #contact {
+    
+    #contact-form-expander{
+        display: none;
+    }
+}
+
+#contact-wrapper {
+    position: relative;
+    
+    @include transition(margin-bottom .3s ease); 
+    @include transform(translateZ(0));  
+}
+
+
+.js {
+    #contact {
+
+        background: $barColor;
+        
+        position: absolute;
+        width: 100%;
+        
+        bottom: 0;
+        
+        
+    
+        #contact-wrapper {
+            margin-bottom: - $contactButtonsBottomSpace;
+        }
+
+        &.expanded  #contact-wrapper{         
+            //@include transform(translateY(100%) translateX(0) );  
+            
+            
+           margin-bottom: -100%;
+            @include transition(margin-bottom .3s ease);
+            @include transform(translateZ(0));  
+            
+            #contact-form-expander {
+                @include filter (grayscale(0)  opacity(1));
+            }
+        } 
+        
+        &.expanded #contact-form{
+            @include box-shadow(inset 0px 0px 5px 0px hsl(0, 1%, 40%));
+        }
+        
+        @media (min-width: $breakpoint60) {
+            bottom:  $contactButtonsBottomSpace;
+            width: 400px;
+            right: 5%;
+
+        }  
+        
+         &:after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: $barColor;
+            display: block;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            z-index: 1;
+        }   
+    }
+
+}
+
+#contact {
+   z-index: 2; 
+}
+
+.contact-item {
+    display: inline-block;
+    margin: $contactsButtonMarginTop $contactsButtonMarginBottom $contactsButtonMarginBottom $contactsButtonMarginBottom;
+    
+    vertical-align: top;
+    
+    a {
+       color:  $bodyColor;
+       min-height: $contactsButtonHeight;
+       display: block;
+       width: 32px;
+       height: 32px;
+       text-indent: -9999px;
+       outline: 0;
+       
+       @include filter (grayscale(1)  opacity(0.7));
+       
+       &:hover {
+           @include filter (grayscale(0)  opacity(1));
+           @include transition(all 0.3s ease);
+       }
+       
+    }
+    
+    #google-plus{
+        background: url(//ssl.gstatic.com/images/icons/gplus-32.png);
+    }
+    
+    #twitter {
+        background: url(img/sprite.png) no-repeat 0 -125px;
+    }
+    
+    &.email a{
+        background: url(img/sprite.png) no-repeat 0 -155px;
+    }
+    
+    
+}
+
+#contact-form {
+    
+    padding: $padding;
+    padding-top: $padding;
+      
+    
+    background: hsl(0, 1%, 90%); 
+    
+    input, textarea {
+
+       margin: 5px 0;
+       width: 100%;
+    } 
+    
+    textarea{
+        margin-top: 0;
+    } 
+    
+    border: 2px solid $barColor; 
+    
+    h3 {
+        color: $textColor;
+    }
+}
+
+#form-submit {
+    border: 0;
+}
+
+#contact-options {
+
+    background: $barColor;
+    text-align: center;
+                 
+    @include border-radius(0 0 8px 8px); 
+        
+}
+
 
 

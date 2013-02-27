@@ -27,7 +27,8 @@
         <header id="masthead">
             
             <div class="container">            
-                <hgroup>
+                <img id="logo" title="Jacques de Klerk - Front-end Web Developer" alt="logo" src="img/logo.gif" />
+                <hgroup>                    
                     <h1>Jacques de Klerk</h1>
                     <h2 class="subtitle">Front-end Web Developer</h2>
                 </hgroup>
@@ -37,14 +38,38 @@
                         <li>Portfolio</li>
                         <li>Resume</li>
                     </ul>    
-                </nav>   -->          
+                </nav>   -->   
+ 
             </div>
+            <section id="contact">
+                <div id="contact-wrapper">  
+                
+                    <form id="contact-form">
+                        <h3>Send me a message</h3>
+                        <!-- <label for="form-name">Name:</label> -->
+                        <input id="form-name" name="form-name" type="text" placeholder="Your Name" tabindex="1" required />
+                        <input id="form-email" name="form-email" type="email" placeholder="Your E-mail Address" tabindex="2" required />
+                        <textarea id="form-text" name="form-text" placeholder="Your message" cols="24" rows="5" required ></textarea>
+                        <input id="form-submit" name="form-submit" type="submit" tabindex="3" value="Send Message" class="button">
+                        
+                        <input id="form-folly" name="form-folly" type="text" placeholder="Your Name" class="hidden "/>
+                    </form>
+                    
+                    <ul id="contact-options">
+                        <li class="contact-item"><a href="https://twitter.com/jacquesdeklerk" id="twitter" class="transition">Twitter</a></li>
+                        <li class="contact-item"><a href="https://plus.google.com/" id="google-plus" class="transition">Google+</a></li>
+                        <li class="contact-item email">
+                            <a href="#" id="contact-form-expander" class="transition">Contact</a>                            
+                        </li>
+                    </ul>
+                </div>  
+            </section>
             
         </header>
         
         <section id="content">
             <div class="container">
-               
+               <h3>Portfolio</h3>
                 <section id="2012" class="annum">
                     <h3 class="annum-heading">2012</h3>
                     
@@ -70,7 +95,8 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis faucibus nibh. Morbi lobortis elementum leo a convallis. Proin scelerisque tempus pretium. Vivamus dictum, metus a aliquet pulvinar, ipsum quam luctus quam, in egestas nisl mi vitae libero. Vivamus nisi felis, faucibus non vehicula nec, aliquam a ante. Quisque euismod urna eget libero adipiscing malesuada. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eget diam id magna cursus tincidunt. Duis placerat dignissim erat, ac pretium nisi condimentum vel.
                             </p>
 
-                            <footer class="article-footer">  
+                            <footer class="article-footer"> 
+                                <h6 class="list-heading" title="Technologies and skills used for this project">Technologies &amp; Skills: </h6>   
                                 <ul class="technologies">
                                     <li class="logo logo-html5" title="HTML 5">HTML 5</li>
                                     <li class="logo logo-css3" title="CSS 3">CSS 3</li>
@@ -81,13 +107,15 @@
                                     <li class="logo logo-design" title="Design">Design</li>
                                 </ul>
                                 
-                                <a href="http://ladl.net">Visit Website</a>
+                                <a href="http://ladl.net" class="external-link button transition" rel="external">Visit Website</a>
                                 
                             </footer>
                         </div>
 
                         
                     </article>
+                    
+                    <hr class="article-divider" />
                     
                     <article id="In-search-of-health" class="inactive project clearfix">  
                         <hgroup class="project-head">
@@ -109,8 +137,10 @@
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis faucibus nibh. Morbi lobortis elementum leo a convallis. Proin scelerisque tempus pretium. Vivamus dictum, metus a aliquet pulvinar, ipsum quam luctus quam, in egestas nisl mi vitae libero. Vivamus nisi felis, faucibus non vehicula nec, aliquam a ante. Quisque euismod urna eget libero adipiscing malesuada. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eget diam id magna cursus tincidunt. Duis placerat dignissim erat, ac pretium nisi condimentum vel.
                             </p>
                             
-                            <footer class="article-footer">  
-                                <ul class="technologies">
+                            <footer class="article-footer">
+                                
+                                <ul class="technologies" title="Technologies and skills used for this project">
+                                    <h6 class="list-heading" title="Technologies and skills used for this project">Technologies &amp; Skills: </h6> 
                                     <li class="logo logo-html5" title="HTML 5">HTML 5</li>
                                     <li class="logo logo-css3" title="CSS 3">CSS 3</li>
                                     <li class="logo logo-jquery" title="jQuery">jQuery</li>
@@ -125,7 +155,7 @@
                         
                         
                     </article>
-                    
+                    <hr class="article-divider" />
                     <article id="supreme-styrene" class="inactive project clearfix">  
                         
                         <hgroup class="project-head">
@@ -148,6 +178,7 @@
                             
                             <footer class="article-footer">  
                                 <ul class="technologies">
+                                    <h6 class="list-heading" title="Technologies and skills used for this project">Technologies &amp; Skills: </h6> 
                                     <li class="logo logo-html5" title="HTML 5">HTML 5</li>
                                     <li class="logo logo-css3" title="CSS 3">CSS 3</li>
                                     <li class="logo logo-jquery" title="jQuery">jQuery</li>
@@ -160,6 +191,7 @@
                         </div>
                         
                     </article>
+                    <hr class="article-divider" />
                                         
                 </section>
 
@@ -170,8 +202,16 @@
         
         
         <footer id="mastfooter">
+            <div id="technologies">
+                <div class="container">
+                    <a id="html5" href="http://www.w3.org/html/logo/">
+    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics">
+    </a>
+                    
+                </div>
+            </div>
             <div class="container">
-                Copyright 2013
+                &copy; Copyright 2013
             </div>    
         </footer>
         
