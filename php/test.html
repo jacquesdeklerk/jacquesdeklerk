@@ -15,11 +15,6 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/style.css">
-        
-        <!--[if lt IE 9]>
-            <link href="<?php echo THEME_URL; ?>/css/ie8-and-down.css" rel="stylesheet" type="text/css" />
-        <![endif]-->
-        
         <link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Muli:400,400italic' rel='stylesheet' type='text/css'>
         
@@ -49,18 +44,15 @@
             <section id="contact">
                 <div id="contact-wrapper">  
                 
-                    <form id="contact-form" action="php/contact.php" method="POST">
+                    <form id="contact-form" action="">
                         <h3>Send me a message</h3>
                         <!-- <label for="form-name">Name:</label> -->
-                        <input id="form-name" name="form-name" type="text" placeholder="Your Name" tabindex="1" required  />
-                        <input id="form-email" name="form-email" type="email" placeholder="Your E-mail Address" tabindex="2" required  />
-                        <textarea id="form-text" name="form-text" tabindex="3" placeholder="Your message" cols="24" rows="7" required ></textarea>
-                        <input id="form-submit" name="form-submit" type="submit" tabindex="4" value="Send Message" class="button transition">
+                        <input id="form-name" name="form-name" type="text" placeholder="Your Name" tabindex="1" required />
+                        <input id="form-email" name="form-email" type="email" placeholder="Your E-mail Address" tabindex="2" required />
+                        <textarea id="form-text" name="form-text" tabindex="3" placeholder="Your message" cols="24" rows="5" required ></textarea>
+                        <input id="form-submit" name="form-submit" type="submit" tabindex="4" value="Send Message" class="button">
                         
                         <input id="form-folly" name="form-folly" type="text" placeholder="Your Name" class="hidden "/>
-                        
-                        <div id="form-status"></div>
-                        
                     </form>
                     
                     <ul id="contact-options">
@@ -106,13 +98,13 @@
                             <footer class="article-footer"> 
                                 <h6 class="list-heading" title="Technologies and skills used for this project">Technologies &amp; Skills: </h6>   
                                 <ul class="technologies">
-                                    <li class="logo logo-html5 transition" title="HTML 5">HTML 5</li>
-                                    <li class="logo logo-css3 transition" title="CSS 3">CSS 3</li>
-                                    <li class="logo logo-jquery transition" title="jQuery">jQuery</li>
-                                    <li class="logo logo-php transition" title="PHP">PHP</li>
-                                    <li class="logo logo-wordpress transition" title="Wordpress">Wordpress</li>
-                                    <li class="logo logo-git transition" title="GIT Version Control">GIT Version Control</li>
-                                    <li class="logo logo-design transition" title="Design">Design</li>
+                                    <li class="logo logo-html5" title="HTML 5">HTML 5</li>
+                                    <li class="logo logo-css3" title="CSS 3">CSS 3</li>
+                                    <li class="logo logo-jquery" title="jQuery">jQuery</li>
+                                    <li class="logo logo-php" title="PHP">PHP</li>
+                                    <li class="logo logo-wordpress" title="Wordpress">Wordpress</li>
+                                    <li class="logo logo-git" title="GIT Version Control">GIT Version Control</li>
+                                    <li class="logo logo-design" title="Design">Design</li>
                                 </ul>
                                 
                                 <a href="http://ladl.net" class="external-link button transition" rel="external">Visit Website</a>
@@ -146,14 +138,15 @@
                             </p>
                             
                             <footer class="article-footer">
-                                <h6 class="list-heading" title="Technologies and skills used for this project">Technologies &amp; Skills: </h6> 
-                                <ul class="technologies" title="Technologies and skills used for this project">                                    
-                                    <li class="logo logo-html5 transition" title="HTML 5">HTML 5</li>
-                                    <li class="logo logo-css3 transition" title="CSS 3">CSS 3</li>
-                                    <li class="logo logo-jquery transition" title="jQuery">jQuery</li>
-                                    <li class="logo logo-php transition" title="PHP">PHP</li>
-                                    <li class="logo logo-wordpress transition" title="Wordpress">Wordpress</li>
-                                    <li class="logo logo-design transition" title="Design">Design</li>
+                                
+                                <ul class="technologies" title="Technologies and skills used for this project">
+                                    <h6 class="list-heading" title="Technologies and skills used for this project">Technologies &amp; Skills: </h6> 
+                                    <li class="logo logo-html5" title="HTML 5">HTML 5</li>
+                                    <li class="logo logo-css3" title="CSS 3">CSS 3</li>
+                                    <li class="logo logo-jquery" title="jQuery">jQuery</li>
+                                    <li class="logo logo-php" title="PHP">PHP</li>
+                                    <li class="logo logo-wordpress" title="Wordpress">Wordpress</li>
+                                    <li class="logo logo-design" title="Design">Design</li>
                                 </ul>
                             </footer>
                             
@@ -228,11 +221,8 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        
-        <!-- scripts concatenated and minified via build script -->
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
-        <!-- end scripts -->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

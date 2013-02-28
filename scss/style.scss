@@ -13,7 +13,7 @@ $contactsButtonMarginTop: 15px;
 $contactsButtonMarginBottom: 7px;
 $sprite: 'img/sprite.png';
 $formWidth: 300px;
-$contactButtonsSpace: 55;
+$contactButtonsSpace: 48;
 $contactButtonsBottomSpace: $contactButtonsSpace + px;
 
 $basepx: 16;
@@ -29,6 +29,7 @@ $container-style: fluid;
 $breakpoint1: 50em;
 $breakpoint2: 70em;
 $breakpoint60: 60em;
+$breakpoint30: 30em;
 
 $media-layout-medium: $breakpoint1 4;
 $media-layout-large: $breakpoint2 6;
@@ -98,8 +99,14 @@ body {
         
         z-index: 3;
         
+        padding: $padding $padding $padding/2 $padding;
+        
         @media (min-width: $breakpoint60) {
             z-index: 1;
+        } 
+        
+        @media (min-width: $breakpoint1) {
+            padding-bottom: $padding;
         }      
     }
          
@@ -121,6 +128,10 @@ body {
         display: inline-block;
         position: relative;
         z-index: 1000;
+        
+        @media (max-width: $breakpoint30) {
+            font-size: 60%;
+        }
     } 
     @media (min-width: $breakpoint1) {
         padding-bottom: 0;
@@ -135,6 +146,12 @@ body {
 #logo {
     width: 120px;
     display: inline-block;
+    margin-right: 1em;
+    
+    @media (max-width: $breakpoint30) {
+        width: 80px;
+        margin-right: 0.5em;
+    } 
 } 
 
 #content{
@@ -221,9 +238,13 @@ article {
 }
 
 .js .inactive /*do only if javascript active*/ {
-    height: 160px;
+    height: 200px;
     overflow-y: hidden;
     overflow-x: visible;
+    
+    @media (min-width: $breakpoint1) {
+        height: 160px;
+    }
 }
 
 .expander {
@@ -245,6 +266,7 @@ article {
     color:$textColor;
     background: #fff;
     z-index: 1;
+    outline: 0;
     
     @include border-radius($expanderWidth);
     
@@ -459,7 +481,9 @@ input, textarea {
         
         bottom: 0;
         
-        
+        textarea {
+            max-height: 300px;
+        }
     
         #contact-wrapper {
             margin-bottom: - $contactButtonsBottomSpace;
@@ -469,8 +493,8 @@ input, textarea {
             //@include transform(translateY(100%) translateX(0) );  
             
             
-           margin-bottom: -100%;
-            @include transition(margin-bottom .3s ease);
+           margin-bottom: -200%;
+            @include transition(margin-bottom .5s ease);
             @include transform(translateZ(0));  
             
             #contact-form-expander {
@@ -480,6 +504,16 @@ input, textarea {
         
         &.expanded #contact-form{
             @include box-shadow(inset 0px 0px 5px 0px hsl(0, 1%, 40%));
+        }
+        
+        
+        #form-status{
+            
+            min-height: 22px;
+            
+            &:before{
+                content: '';                  
+            }  
         }
         
         @media (min-width: $breakpoint60) {
@@ -510,7 +544,7 @@ input, textarea {
 
 .contact-item {
     display: inline-block;
-    margin: $contactsButtonMarginTop $contactsButtonMarginBottom $contactsButtonMarginBottom $contactsButtonMarginBottom;
+    margin:$contactsButtonMarginBottom;
     
     vertical-align: top;
     

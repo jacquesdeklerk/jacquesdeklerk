@@ -1,4 +1,5 @@
 @import "compass/css3/transition";
+@import "compass/css3/filter";
 
 
 .logo {
@@ -9,7 +10,9 @@
     position: relative;
     margin: 0 4px 4px 0;
     
-    &:before {
+    @include filter (grayscale(1));
+    
+    /*&:before {
         content: '';
         background: url(img/sprite.png) no-repeat;
         position: absolute;
@@ -19,7 +22,11 @@
         opacity: 0;
         
         @include transition(opacity 0.2s ease-in-out);
-    }
+    }*/
+   
+   &:hover{
+       @include filter (grayscale(0));
+   }
 }
 
 .logo:last-child {
@@ -48,7 +55,7 @@
 
 .logo-git, .logo-git:before{
     width: 38px;
-    height: 37px;
+    height: 38px;
 }
 
 .logo-design, .logo-design:before{
