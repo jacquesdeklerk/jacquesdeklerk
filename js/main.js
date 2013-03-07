@@ -1,10 +1,15 @@
 $(document).ready(function(){
-	externalLinks();//in plugins.js
+
+	//expand contact section if hash is set
+	if(window.location.hash === "contact"){
+	     $('#contact').addClass('expanded');
+	}
 	
 	$('.project-head, .images').click(function(e) {
 	    e.preventDefault();
 		$(this).parents('article').toggleClass('inactive').toggleClass('expanded');
 	});
+	
 	
 	//add expand symbol to headings
 	$('.project-heading').prepend('<a href="#" class="expander"></a>');
@@ -16,14 +21,31 @@ $(document).ready(function(){
       }
     );
     
-    
 
+    //toggle contact
+    $('#contact-form-expander').click(function(e) {
+        var location = 
+        e.preventDefault();
+        $('#contact').toggleClass('expanded');
+       
+        
+        if($('#contact').hasClass('expanded')){
+             window.location.hash = 'contact';
+        }
+        else{
+            window.location.hash = '';
+        }
+        
+    });
     
     
     //toggle contact
-    $('#contact-form-expander').click(function(e) {
-        e.preventDefault();
-        $(this).parents('#contact').toggleClass('expanded');
+    $('#footer-nav .contact').click(function(e) {
+        //e.preventDefault();
+        
+        if(!$('#contact').hasClass('expanded')){
+            $('#contact').addClass('expanded');
+        }
     });
     
     

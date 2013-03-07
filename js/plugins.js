@@ -24,7 +24,7 @@
 //// Place any jQuery/helper plugins in here.
 
 //Open External Links as Blank Targets via Unobtrusive JavaScript
-function externalLinks() {
+(function() {
     var i=0;
     if (!document.getElementsByTagName) return;
     var anchors = document.getElementsByTagName("a");
@@ -38,5 +38,5 @@ function externalLinks() {
             )
         anchor.target = "_blank";
     }
-}
+}());
 //End of Open External Links

@@ -64,11 +64,13 @@
 }
 
 .logo-flash, .logo-flash:before{
-    
+    width: 33px;
+    height: 34px;
 }
 
 .logo-flex, .logo-flex:before{
-    
+    width: 33px;
+    height: 33px;
 }
 
 .logo-wordpress, .logo-wordpress:before{
@@ -77,7 +79,8 @@
 }
 
 .logo-drupal, .logo-drupal:before{
-    
+    width: 35px;
+    height: 39px;
 }
 
 
@@ -133,12 +136,18 @@
 }
 
 .logo-flash{
+    
+    background-position: -370px 0;
+    
     &:before {
         
     }
 }
 
 .logo-flex{
+    
+    background-position: -410px 0;
+    
     &:before {
         
     }
@@ -154,6 +163,9 @@
 }
 
 .logo-drupal{
+    
+    background-position: -195px 0;
+    
     &:before {
         
     }

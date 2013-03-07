@@ -1,8 +1,10 @@
 $backgroundColor: #FEFEFE;
 $bodyColor: #D1D1D1;
 $barColor: #101010;
-$highlightColor: #00c0ff;
+$lightBarColor: #363636;
+$highlightColor: #1f9bb5;
 $textColor: hsl(358, 1%, 8%);
+$lightTextColor: #f3f3f3;
 $padding: 20px;
 $largestWidth: 1180px;
 $expanderWidth: 24px;
@@ -26,13 +28,13 @@ $grid-padding   : $gutter-width;
 
 $container-style: fluid;
 
-$breakpoint1: 50em;
-$breakpoint2: 70em;
-$breakpoint60: 60em;
 $breakpoint30: 30em;
+$breakpoint50: 50em;
+$breakpoint60: 60em;
+$breakpoint70: 70em;
 
-$media-layout-medium: $breakpoint1 4;
-$media-layout-large: $breakpoint2 6;
+$media-layout-medium: $breakpoint50 4;
+$media-layout-large: $breakpoint70 6;
 
 @import "susy";
 @import "icons";
@@ -44,6 +46,7 @@ $media-layout-large: $breakpoint2 6;
 @import "compass/css3/box-shadow";
 @import "compass/css3/filter";
 @import "compass/css3/box-sizing";
+@import "compass/css3/text-shadow";
 
 // Convert PX to EM global function
 @function pxtoem($px, $basepx){
@@ -105,7 +108,7 @@ body {
             z-index: 1;
         } 
         
-        @media (min-width: $breakpoint1) {
+        @media (min-width: $breakpoint50) {
             padding-bottom: $padding;
         }      
     }
@@ -133,7 +136,7 @@ body {
             font-size: 60%;
         }
     } 
-    @media (min-width: $breakpoint1) {
+    @media (min-width: $breakpoint50) {
         padding-bottom: 0;
     } 
     
@@ -152,6 +155,15 @@ body {
         width: 80px;
         margin-right: 0.5em;
     } 
+} 
+
+
+
+#footer-logo {
+    width: 40px;
+    float: right;
+    padding-top: 8px;
+    opacity: .7;
 } 
 
 #content{
@@ -179,7 +191,7 @@ body {
     }
 }
 
-.article-body, .project-head{
+.article-body, .project-head, {
     @include span-columns(2 omega,2);
     
     @include at-breakpoint($media-layout-medium){
@@ -192,6 +204,54 @@ body {
        @include span-columns(2,6); 
     }
 }
+
+#about {
+    @include span-columns(2,2);
+    
+    @include at-breakpoint($media-layout-medium){
+       
+       @include span-columns(2,4); 
+    }
+    
+    @include at-breakpoint($media-layout-large){
+       
+       @include span-columns(3,6); 
+       
+           p {
+            margin-bottom: 0;
+        }
+    }
+    
+    
+}
+
+#skills{
+    @include span-columns(2,2);
+    
+    @include at-breakpoint($media-layout-medium){
+       
+       @include span-columns(2 omega,4); 
+    }
+    
+    @include at-breakpoint($media-layout-large){
+       
+       @include span-columns(2,6); 
+    }
+}
+
+/*#footer-nav {
+     @include span-columns(2,2);
+    
+    @include at-breakpoint($media-layout-medium){
+       
+       @include span-columns(2 omega,4); 
+    }
+    
+    @include at-breakpoint($media-layout-large){
+       
+       @include span-columns(1 omega,6); 
+    }
+}*/
 
 #nav li {
     display: inline;
@@ -210,15 +270,19 @@ h1,h2,h3,h4,h5,h6 {
     
     @include container;
     
-    @media (min-width: $breakpoint1) {
+    @media (min-width: $breakpoint50) {
         margin: 0 auto;
         width: 90%; 
     }
 }
 
-#masthead, #mastfooter {
+#masthead, #mastfooter, #legal{
     background: $barColor;
-    color: #fff;
+    color: $lightTextColor;
+}
+
+#mastfooter {
+    background: $lightBarColor;
 }
 
 article {
@@ -234,7 +298,15 @@ article {
 
     .project-head, .images {
         cursor: pointer;
-    }    
+    } 
+    
+    img{
+        border: 1px solid #ccc;
+    }  
+    
+    &.mobile img{
+        border: 0;
+    } 
 }
 
 .js .inactive /*do only if javascript active*/ {
@@ -242,7 +314,7 @@ article {
     overflow-y: hidden;
     overflow-x: visible;
     
-    @media (min-width: $breakpoint1) {
+    @media (min-width: $breakpoint50) {
         height: 160px;
     }
 }
@@ -251,7 +323,7 @@ article {
     /*background: url(img/sprite.png) no-repeat 0 -85px;*/
     display: none;
     
-    @media (min-width: $breakpoint1) {
+    @media (min-width: $breakpoint50) {
         display: block;
     }  
 
@@ -336,13 +408,11 @@ article {
     position: relative;
 }
 
-/*@include columns(3);*/
 
 article img {
     max-width: 100%;
     height: auto;
     vertical-align: top;
-    margin-top: 1em;
 }
 
 .article-divider {
@@ -409,19 +479,27 @@ input, textarea {
 .annum {
     border-top: 1px solid $barColor;
     position: relative;
+    padding-bottom: $padding;
 }
 
 .annum-heading {
     position: absolute;
     
+    color:$highlightColor;
+    
     top: -1.3em;
     left: 0;
     
-    @media (min-width: $breakpoint1) {
+    @media (min-width: $breakpoint50) {
     top: -0.7em;
     left: -2.5em;
   }
            
+}
+
+.content-heading {
+    font-weight: bold;
+    margin-bottom: 2em;
 }
 
 #technologies /*top footer bar*/{
@@ -444,9 +522,22 @@ input, textarea {
     position: relative;
     z-index: 100;
     
-    ul {
+    #contact-options {
         margin: 0;
-        padding: 0;        
+        padding: 0 $padding;
+        background: $barColor;
+        text-align: center;
+                 
+        @include border-radius(0 0 8px 8px); 
+    
+        @media (min-width: $breakpoint60) {
+            text-align: right;
+            padding: 0 $padding;
+            
+            .email{
+                margin-right: 0;
+            }
+        }   
     }
     
     input {
@@ -545,7 +636,6 @@ input, textarea {
 .contact-item {
     display: inline-block;
     margin:$contactsButtonMarginBottom;
-    
     vertical-align: top;
     
     a {
@@ -555,6 +645,7 @@ input, textarea {
        width: 32px;
        height: 32px;
        text-indent: -9999px;
+       text-align: left;
        outline: 0;
        
        @include filter (grayscale(1)  opacity(0.7));
@@ -610,14 +701,40 @@ input, textarea {
     border: 0;
 }
 
-#contact-options {
 
-    background: $barColor;
-    text-align: center;
-                 
-    @include border-radius(0 0 8px 8px); 
-        
+#legal {
+    p{
+        margin: 0;
+        display: inline-block;
+        padding: $padding/2 0;
+    }
+    
+    .container {
+        padding: 0 $padding;
+    }
 }
 
+#skills{
+    display: inline-block;
+}
 
+#skill-set {
+    padding: 0 0 0 1em;
+    margin-bottom: 0;
+}
 
+#footer-nav {
+    float: right;
+    padding: $padding/2 $padding $padding/2 0;
+    
+    a {
+
+        color: $lightBarColor;
+    }
+}
+
+.footnote{
+    &:before{
+        content:'* ';
+    }
+}
