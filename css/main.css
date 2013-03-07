@@ -5,22 +5,22 @@
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-/* line 19, ../scss/main.scss */
+
 html,
 button,
 input,
 select,
 textarea {
-  color: #222;
+    color: #222;
 }
 
-/* line 23, ../scss/main.scss */
 body {
-  font-size: 1em;
-  line-height: 1.4;
+    font-size: 1em;
+    line-height: 1.4;
 }
 
 /*
@@ -28,139 +28,155 @@ body {
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
-/* line 34, ../scss/main.scss */
+
 ::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+    background: #b3d4fc;
+    text-shadow: none;
 }
 
-/* line 39, ../scss/main.scss */
 ::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+    background: #b3d4fc;
+    text-shadow: none;
 }
 
 /*
  * A better looking default horizontal rule
  */
-/* line 48, ../scss/main.scss */
+
 hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #cccccc;
-  margin: 1em 0;
-  padding: 0;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
 }
 
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
-/* line 61, ../scss/main.scss */
+
 img {
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
 /*
  * Remove default fieldset styles.
  */
-/* line 69, ../scss/main.scss */
+
 fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /*
  * Allow only vertical resizing of textareas.
  */
-/* line 79, ../scss/main.scss */
+
 textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 /* ==========================================================================
    Chrome Frame prompt
    ========================================================================== */
-/* line 87, ../scss/main.scss */
+
 .chromeframe {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
 }
 
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
 /*
  * Image replacement
  */
-/* line 106, ../scss/main.scss */
+
 .ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  /* IE 6/7 fallback */
-  *text-indent: -9999px;
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
 }
 
-/* line 114, ../scss/main.scss */
 .ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%;
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
 }
 
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-/* line 125, ../scss/main.scss */
+
 .hidden {
-  display: none !important;
-  visibility: hidden;
+    display: none !important;
+    visibility: hidden;
 }
 
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-/* line 134, ../scss/main.scss */
+
 .visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 /*
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 151, ../scss/main.scss */
+
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
 }
 
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 164, ../scss/main.scss */
+
 .invisible {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 /*
@@ -174,27 +190,24 @@ textarea {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-/* line 181, ../scss/main.scss */
+
 .clearfix:before,
 .clearfix:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
 
-/* line 186, ../scss/main.scss */
 .clearfix:after {
-  clear: both;
+    clear: both;
 }
 
 /*
  * For IE 6/7 only
  * Include this rule to trigger hasLayout and contain floats.
  */
-/* line 195, ../scss/main.scss */
+
 .clearfix {
-  *zoom: 1;
+    *zoom: 1;
 }
 
 /* ==========================================================================
@@ -202,94 +215,86 @@ textarea {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-/*@media only screen and (min-width: 35em) {
-     Style adjustments for viewports that meet the condition 
-}*/
-/*@media print,
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 120dpi) {
-    Style adjustments for high resolution devices 
-}*/
+    /* Style adjustments for high resolution devices */
+}
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid required HTTP connection: h5bp.com/r
    ========================================================================== */
+
 @media print {
-  /* line 222, ../scss/main.scss */
-  * {
-    background: transparent !important;
-    color: black !important;
-    /* Black prints faster: h5bp.com/s */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
 
-  /* line 230, ../scss/main.scss */
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
 
-  /* line 234, ../scss/main.scss */
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
 
-  /* line 238, ../scss/main.scss */
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
 
-  /*
-   * Don't show links for images, or javascript/internal links
-   */
-  /* line 248, ../scss/main.scss */
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
-  }
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
 
-  /* line 253, ../scss/main.scss */
-  pre,
-  blockquote {
-    border: 1px solid #999999;
-    page-break-inside: avoid;
-  }
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
 
-  /* line 258, ../scss/main.scss */
-  thead {
-    display: table-header-group;
-    /* h5bp.com/t */
-  }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
 
-  /* line 263, ../scss/main.scss */
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
 
-  /* line 267, ../scss/main.scss */
-  img {
-    max-width: 100% !important;
-  }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
 
-  @page {
-    margin: 0.5cm;
-}
+    img {
+        max-width: 100% !important;
+    }
 
-  /* line 277, ../scss/main.scss */
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
+    @page {
+        margin: 0.5cm;
+    }
 
-  /* line 283, ../scss/main.scss */
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
 }
