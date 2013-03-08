@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	//expand contact section if hash is set
-	if(window.location.hash === "contact"){
+	if(window.location.hash === "#contact"){
 	     $('#contact').addClass('expanded');
 	}
 	
@@ -47,6 +47,16 @@ $(document).ready(function(){
             $('#contact').addClass('expanded');
         }
     });
+    
+    /*
+     * Scroll to top
+     */
+    $('#scroll-top').click(function(e) {
+        e.preventDefault();
+        scrollTo(0);
+      });
+
+    
     
     
     /*

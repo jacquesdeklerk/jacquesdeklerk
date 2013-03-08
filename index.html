@@ -12,8 +12,6 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/style.css">
         
         <!--[if lt IE 9]>
@@ -24,7 +22,7 @@
         
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body>
+    <body id="top">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->        
@@ -63,10 +61,10 @@
                     </form>
                     
                     <ul id="contact-options">
-                        <li class="contact-item"><a href="https://twitter.com/jacquesdeklerk" id="twitter" class="transition">Twitter</a></li>
-                        <li class="contact-item"><a href="https://plus.google.com/" id="google-plus" class="transition">Google+</a></li>
+                        <li class="contact-item"><a href="https://twitter.com/jacquesdeklerk" id="twitter" title="Twitter" class="transition">Twitter</a></li>
+                        <li class="contact-item"><a href="https://plus.google.com/114872645284669623756/" id="google-plus" title="Google Plus" class="transition">Google+</a></li>
                         <li class="contact-item email">
-                            <a href="#contact" id="contact-form-expander" class="transition">Contact</a>                            
+                            <a href="#contact" id="contact-form-expander" title="Send message" class="transition">Contact</a>                            
                         </li>
                     </ul>
                 </div>  
@@ -74,6 +72,7 @@
             
         </header>
         
+        <!-- Content -->
         <section id="content" role="main">
             <div class="container">
                <h3 class="content-heading">Portfolio</h3>
@@ -102,8 +101,8 @@
                                 The client wanted a website to showcase a photography studio portfolio.
                             </p>
                             <p>
-                                We decided to use Wordpress as a CMS because of the obvious benefits. Website was built to be responsive and thus adapt to various devices, although the primary focus was still desktop. 
-                                A custom built theme was used based on <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>.
+                                It was decided to use Wordpress as a CMS because of the obvious benefits. Website was built to be responsive and thus adapt to various devices, although the primary focus was still desktop. 
+                                A custom-built Wordpress theme was used based on <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>.
                             </p>
                             <p>
                                 I was responsible for the entire project, from design to deployment.
@@ -151,7 +150,7 @@
                                 Client wanted a simple blogging site to share recipes and advice. One of the simplest and more enjoyable sites I've done. 
                             </p>
                             <p>
-                                My first use of Wordpress that has seen production level. A custom built theme was used based on <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>. This website has basic responsive capabilties.
+                                My first use of Wordpress that has seen production level. A custom-built Wordpress theme - based on <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a> - was used . This website has basic responsive capabilties.
                             </p>
                             
                             <p>
@@ -202,7 +201,7 @@
                                 Drupal was used as CMS with a custom theme based on <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>.
                             </p>
                             <p>
-                                My first site for an organisation in the construction sector, which made the design rather challenging for me. 
+                                My first site for an organisation in the construction sector, which made the design rather challenging for me. I was responsible for the entire project, from design to deployment.
                             </p>
                             
                             <footer class="article-footer"> 
@@ -215,6 +214,9 @@
                                     <li class="logo logo-drupal transition" title="Drupal">Drupal</li>
                                     <li class="logo logo-design transition" title="Design">Design</li>
                                 </ul>
+                                
+                                <a href="http://supremestyrene.co.za/" class="external-link button transition" rel="external">Visit Website</a>
+                                
                             </footer>
                             
                         </div>
@@ -244,7 +246,7 @@
                         <div class="article-body column">
 
                             <p>
-                                Client wanted a very basic non-cms site to showcase their products. 
+                                Client wanted a very basic site to showcase their products. 
                             </p>
                             
                             <p>
@@ -291,10 +293,13 @@
                         
                         <div class="article-body column">
                             <p>
-                                Client was concerned with not having a mobile presence seeing that his website was flash-based. It was decided to build a basic "miniature" html version that would also act as a fallback for any device with no flash support.
+                                Client was concerned with not having a mobile presence seeing that his website was flash-based. It was decided to build a basic "miniature" HTML version that would also act as a fallback for any device with no flash support.
                             </p>
                             <p>
                                 My first use of <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>. Design was adapted from original flash-based site designed by <a href="http://www.shotopop.com">Shotopop</a>
+                            </p>
+                            <p>
+                                I was responsible for the entire project, from design to deployment.
                             </p>
                             
                             <footer class="article-footer">
@@ -340,7 +345,7 @@
                                 Drupal was used as a CMS framework.
                             </p>
                             <p>
-                                A collaboration with designer Werner Burger.
+                                Design and administration by Werner Burger.
                             </p>
                             
                             <footer class="article-footer"> 
@@ -350,6 +355,10 @@
                                     <li class="logo logo-php transition" title="PHP">PHP</li>
                                     <li class="logo logo-drupal transition" title="Drupal">Drupal</li>
                                 </ul>
+                                
+                                
+                                <a href="http://fairmade.co.za/" class="external-link button transition" rel="external">Visit Website</a>
+                                
                             </footer>
                             
                         </div>
@@ -378,7 +387,7 @@
                         
                         <div class="article-body column">
                             <p>
-                                Client requested a basic no-CMS HTML site. Design by my good friend Werner Burger. 
+                                Basic HTML site. Design by Werner Burger. 
                             </p>
                             
                             <footer class="article-footer"> 
@@ -386,7 +395,11 @@
                                 <ul class="technologies">                                    
                                     <li class="logo logo-jquery transition" title="jQuery">jQuery</li>
                                 </ul>
+                                
+                                <a href="http://cjvhprinsloo.co.za/" class="external-link button transition" rel="external">Visit Website</a>
+                                
                             </footer>
+                            
                             
                         </div>
                         
@@ -409,11 +422,11 @@
                         
                         <div class="article-body column">
                             <p>
-                                Client requested a Flash-based portfolio website. This site was built entirely in Actionscript 3. The last flash site I've done and probably will ever do.  
+                                Client requested a Flash-based portfolio website. This site was built entirely in Actionscript 3, before the big mobile boom. 
                             </p>
                             
                             <p>
-                                I collaborated with the amazing <a href="http://www.shotopop.com">Shotopop</a> on this, the design being skillfully taken care of by them.
+                                Design by the amazing <a href="http://www.shotopop.com">Shotopop</a>.
                             </p>
                             
                             <footer class="article-footer"> 
@@ -421,6 +434,9 @@
                                 <ul class="technologies">                                    
                                     <li class="logo logo-flash transition" title="Flash/Actionscript 3">Flash</li>
                                 </ul>
+                                
+                                <a href="http://derricksantini.com" class="external-link button transition" rel="external">Visit Website</a>
+                                
                             </footer>
                             
                         </div>
@@ -434,7 +450,7 @@
                         <hgroup class="project-head">
                             <h3 class="project-heading">Derrick Santini Admin</h3>
                             <h4>
-                                Flex Web application to administrate website
+                                Flex website management application.
                             </h4>
                         </hgroup>
                         
@@ -444,7 +460,7 @@
                         
                         <div class="article-body column">
                             <p>
-                                Interface for managing and updating website built in Adobe Flex and PHP.
+                                Interface for managing and updating website built in Adobe Flex and PHP. This was built from scratch was was a great challenge.
                             </p>
                             
                             <footer class="article-footer"> 
@@ -482,7 +498,7 @@
                         
                         <div class="article-body column">
                             <p>
-                                Client was a design firm based in London with very a specific vision for the site. Was a great experience working with such talented people a giving life to their vision.
+                                Client was a design firm based in London with very a specific vision for the site. Was a great experience working with such talented people and giving life to their vision.
                             </p>
                             <p>
                                Built in Flash using Actionscript 2, this was built before the great HTML 5 takeover. 
@@ -512,6 +528,9 @@
 
                 
             </div>
+            
+            <a id="scroll-top" href="#top" class="transition">Top</a>
+            
         </section>
         
         
@@ -532,8 +551,8 @@
                     <section id="about">
                         <h3>About Jacques de Klerk</h3>
                         <p>
-                            Jacques de Klerk is self-taught web developer with over 5 years of experience in the industry. After initially graduating with a degree in marketing, he soon realised that
-                            his passion lay with web development and he hasn't looked back since. Currently freelancing, he has worked on various diverse projects which he has overseen from concept to deployment.
+                            I'm a self-taught web developer with over 5 years of experience in the industry. After initially graduating with a degree in marketing, I soon realised that
+                            my passion lay with web development and haven't looked back since. Currently freelancing, I've worked on various diverse projects which I've overseen from concept to deployment.
                         </p>
                     </section>
                                        
@@ -544,7 +563,7 @@
                             <li>Css 3</li>
                             <li>Javascript/jQuery</li>
                             <li>PHP</li>
-                            <li>Actionscript 3</li>
+                            <li>Actionscript 3/Flash/Flex</li>
                             <li>Photoshop/Illustrator</li>
                             
                         </ul>

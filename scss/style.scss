@@ -1,3 +1,6 @@
+@import url('normalize.css');
+@import url('main.css');
+
 $backgroundColor: #FEFEFE;
 $bodyColor: #D1D1D1;
 $barColor: #101010;
@@ -5,7 +8,7 @@ $lightBarColor: #363636;
 $highlightColor: #1f9bb5;
 $textColor: hsl(358, 1%, 8%);
 $lightTextColor: #f3f3f3;
-$padding: 20px;
+$padding: 1.25em;
 $largestWidth: 1180px;
 $expanderWidth: 24px;
 $articleNegativeMargin: 3em;
@@ -23,7 +26,7 @@ $basepx: 16;
 
 $total-columns  : 2;             
 $column-width   : 4em;            
-$gutter-width   : 1em;            
+$gutter-width   : $padding;            
 $grid-padding   : $gutter-width; 
 
 $container-style: fluid;
@@ -95,7 +98,7 @@ body {
 #masthead {    
     position: relative;
     z-index: 9999;  
-    margin-bottom: pxtoem($contactButtonsSpace, $basepx) + 1em; /*for contact icons*/ 
+    margin-bottom: pxtoem($contactButtonsSpace, $basepx) + $padding; /*for contact icons*/ 
     
     .container {        
         background: $barColor;
@@ -141,7 +144,7 @@ body {
     } 
     
     @media (min-width: $breakpoint60) {
-        margin-bottom: 1em;
+        margin-bottom: $padding;
     }  
         
 }
@@ -149,7 +152,7 @@ body {
 #logo {
     width: 120px;
     display: inline-block;
-    margin-right: 1em;
+    margin-right: $padding;
     
     @media (max-width: $breakpoint30) {
         width: 80px;
@@ -283,6 +286,10 @@ h1,h2,h3,h4,h5,h6 {
 
 #mastfooter {
     background: $lightBarColor;
+    
+    a {
+        border: 0;
+    }
 }
 
 article {
@@ -395,6 +402,9 @@ article {
      
 }
 
+.article-footer {
+    padding-top: $padding;
+}
 
 .js .inactive p, .js .inactive .article-footer{  
     @include opacity(0);
@@ -421,7 +431,7 @@ article img {
 
 .transition{
     @include transition(all 0.2s ease); 
-    @include transform(translateZ(0));  
+    /*@include transform(translateZ(0)); */
 }
 
 .list-heading {
@@ -433,17 +443,24 @@ article img {
     background: #bababa;
     padding: 5px 7px;
     text-decoration: none;
-    margin-top: 1em;
+    margin-top: 2em;
     display: inline-block;
     color: $backgroundColor;
+    border: 0;
     
     @include border-radius(5px);
+    
+    &:visited {
+        color: $backgroundColor;
+    }
     
     &:hover {
         color: $highlightColor;
         background: #dcdcdc;
         @include box-shadow();
     }
+    
+    
 }
 
 input, textarea {
@@ -474,6 +491,9 @@ input, textarea {
 .technologies {
     margin: 0;
     padding: 4px 0 0 0;
+    
+    border-bottom: 1px dotted $lightTextColor;
+    border-top: 1px dotted $lightTextColor;
 }
 
 .annum {
@@ -719,8 +739,14 @@ input, textarea {
 }
 
 #skill-set {
-    padding: 0 0 0 1em;
+    padding: 0 0 0 $padding;
     margin-bottom: 0;
+}
+
+#footer-main{
+    h3 {
+        text-decoration: underline;
+    }
 }
 
 #footer-nav {
@@ -730,11 +756,69 @@ input, textarea {
     a {
 
         color: $lightBarColor;
+        text-decoration: none;
     }
 }
 
 .footnote{
     &:before{
         content:'* ';
+    }
+}
+
+/*links*/
+article p a{ 
+    text-decoration: none;
+    
+    border-bottom: 1px dotted $lightBarColor;
+       
+    &:link {
+        color:$highlightColor;
+        border-color: $highlightColor;
+    }
+    
+    &:active {
+        color:#EB1A1A;
+        border-color: #EB1A1A;
+    }
+    
+    &:visited {
+        color:$bodyColor;
+        border-color: $bodyColor;
+    }
+     
+}
+
+#scroll-top{
+    margin: $padding auto;
+    width: 50px;
+    height: 50px;
+    display: block; 
+    text-align: center; 
+    position: relative;
+    text-decoration: none;
+    padding-top: 20px;
+    color:$textColor;
+    font-size: 80%;
+    
+    @include border-radius(50px);
+    
+    background: hsl(0, 1%, 80%);
+    
+    &:before {
+        content: '^';
+        position: absolute;
+        font-size: 150%;
+        font-weight: bold;
+        width: 20px;
+        left: 15px;
+        top: 5px;
+        @include opacity (0.7);
+        
+    }
+    
+    &:hover{
+        background: hsl(0, 1%, 50%);
+        color:hsl(0, 1%, 90%);
     }
 }
