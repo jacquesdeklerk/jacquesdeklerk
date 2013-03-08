@@ -3,11 +3,8 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Jacques de Klerk -- Lead Developer -- @jacquesdeklerk
 
-# THANKS
-
-    <name>
 
 # TECHNOLOGY COLOPHON
 
