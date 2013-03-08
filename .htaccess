@@ -327,7 +327,7 @@ FileETag None
 # if you serve a lot of static content.
 
 # <IfModule mod_headers.c>
-#   Header set Connection Keep-Alive
+   Header set Connection Keep-Alive
 # </IfModule>
 
 
