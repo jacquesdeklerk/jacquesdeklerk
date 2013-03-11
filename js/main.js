@@ -51,26 +51,30 @@ $(document).ready(function(){
     
     //toggle contact
     $('#footer-nav .contact').click(function(e) {
-        e.preventDefault();
-        
-
         $("html, body").animate({ scrollTop: 0 }, 800, function(){
-            if(!$contact.hasClass('expanded')){
-                $contact.addClass('expanded');
-            }
-            toggleContactHash($contact);
+            // SET A TIMEOUT...
+            window.setTimeout(function(){
+                if(!$contact.hasClass('expanded')){
+                    $contact.addClass('expanded');
+                }
+                toggleContactHash($contact);
+            }, 300);    
         });
         
         return false;
     });
     
+    
+    
     /*
      * Scroll to top
      */
-    $('#scroll-top').click(function(e) {
-        e.preventDefault();
-        window.scrollTo(0,0);
-      });
+    $('#scroll-top').click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
 
     
     
