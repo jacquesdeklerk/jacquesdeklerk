@@ -831,6 +831,7 @@ input, textarea {
 }
 /* line 621, ../scss/style.scss */
 .js #contact #form-status {
+  color: #151414;
   min-height: 22px;
 }
 /* line 625, ../scss/style.scss */
@@ -961,43 +962,45 @@ input, textarea {
 
 /* line 752, ../scss/style.scss */
 #footer-nav {
-  float: right;
+  position: absolute;
+  right: 0;
+  top: 0;
   padding: 0.625em 1.25em 0.625em 0;
 }
-/* line 756, ../scss/style.scss */
+/* line 758, ../scss/style.scss */
 #footer-nav a {
   color: #363636;
   text-decoration: none;
 }
 
-/* line 764, ../scss/style.scss */
+/* line 766, ../scss/style.scss */
 .footnote:before {
   content: '* ';
 }
 
 /*links*/
-/* line 770, ../scss/style.scss */
+/* line 772, ../scss/style.scss */
 article p a {
   text-decoration: none;
   border-bottom: 1px dotted #363636;
 }
-/* line 775, ../scss/style.scss */
+/* line 777, ../scss/style.scss */
 article p a:link {
   color: #1f9bb5;
   border-color: #1f9bb5;
 }
-/* line 780, ../scss/style.scss */
+/* line 782, ../scss/style.scss */
 article p a:active {
   color: #EB1A1A;
   border-color: #EB1A1A;
 }
-/* line 785, ../scss/style.scss */
+/* line 787, ../scss/style.scss */
 article p a:visited {
   color: #d1d1d1;
   border-color: #d1d1d1;
 }
 
-/* line 792, ../scss/style.scss */
+/* line 794, ../scss/style.scss */
 #scroll-top {
   margin: 1.25em auto;
   width: 50px;
@@ -1016,7 +1019,7 @@ article p a:visited {
   border-radius: 50px;
   background: #cdcbcb;
 }
-/* line 808, ../scss/style.scss */
+/* line 810, ../scss/style.scss */
 #scroll-top:before {
   content: '^';
   position: absolute;
@@ -1028,7 +1031,7 @@ article p a:visited {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
 }
-/* line 820, ../scss/style.scss */
+/* line 822, ../scss/style.scss */
 #scroll-top:hover {
   background: #817e7e;
   color: #e6e5e5;

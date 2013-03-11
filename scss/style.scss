@@ -91,7 +91,7 @@ body {
   background-color: $backgroundColor;
   color: $textColor;
   font-family: 'Muli',sans-serif;
-  font-style: normal;
+  font-style:  normal;
 }
 
 
@@ -619,7 +619,7 @@ input, textarea {
         
         
         #form-status{
-            
+            color: $textColor;
             min-height: 22px;
             
             &:before{
@@ -750,7 +750,9 @@ input, textarea {
 }
 
 #footer-nav {
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
     padding: $padding/2 $padding $padding/2 0;
     
     a {

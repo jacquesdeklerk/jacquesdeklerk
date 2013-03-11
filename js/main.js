@@ -1,8 +1,24 @@
 $(document).ready(function(){
 
+	var $contact = $('#contact');
+	
+	//close contact if clicked outside
+	$(document).mouseup(function (e){
+
+	    if(e.target.hash === '#contact'){
+	       return false;
+	    }
+	    else{
+	        if($contact.has(e.target).length === 0){ 
+                $contact.removeClass('expanded');
+                toggleContactHash($contact);
+            }
+	    }
+    });
+    
 	//expand contact section if hash is set
 	if(window.location.hash === "#contact"){
-	     $('#contact').addClass('expanded');
+	     $contact.addClass('expanded');
 	}
 	
 	$('.project-head, .images').click(function(e) {
@@ -26,26 +42,26 @@ $(document).ready(function(){
     $('#contact-form-expander').click(function(e) {
         var location = 
         e.preventDefault();
-        $('#contact').toggleClass('expanded');
-       
+        $contact.toggleClass('expanded');       
         
-        if($('#contact').hasClass('expanded')){
-             window.location.hash = 'contact';
-        }
-        else{
-            window.location.hash = '';
-        }
+        toggleContactHash($contact);
         
     });
     
     
     //toggle contact
     $('#footer-nav .contact').click(function(e) {
-        //e.preventDefault();
+        e.preventDefault();
         
-        if(!$('#contact').hasClass('expanded')){
-            $('#contact').addClass('expanded');
-        }
+
+        $("html, body").animate({ scrollTop: 0 }, 800, function(){
+            if(!$contact.hasClass('expanded')){
+                $contact.addClass('expanded');
+            }
+            toggleContactHash($contact);
+        });
+        
+        return false;
     });
     
     /*
@@ -53,7 +69,7 @@ $(document).ready(function(){
      */
     $('#scroll-top').click(function(e) {
         e.preventDefault();
-        scrollTo(0);
+        window.scrollTo(0,0);
       });
 
     
@@ -91,19 +107,26 @@ $(document).ready(function(){
                success: function(data,status, obj)
                {
                    console.log('ajax success');
-                   console.log(data); // show response from the php script.
+                   console.log(data); // show response from the php script.                  
                    
-                   $('#form-status').text('Your message has been sent...');
+                   if(data !== 'OK'){
+                       $('#form-status').html(data);
+                   }
+                   else{
+                        $('#form-status').text('Your message has been sent...');
+                   }
                    
-                   $('#form-status').html(data);
+                   //$('#form-status').html(data);
                    
                    
                },
                complete: function(data,status){
+                   console.log('this: ' , $(this));
+                   $('#contact-form')[0].reset();
                },
                error: function(obj,status,error){
                    console.log('ERROR!');
-                   console.log(status); // show response from the php script.
+                   //console.log(status); // show response from the php script.
                    
                    $('#form-status').text('An error occurred, please try again.');
                }
@@ -113,6 +136,15 @@ $(document).ready(function(){
             
             return false;
      });
+     
+     function toggleContactHash(element){
+        if(element.hasClass('expanded')){
+             window.location.hash = 'contact';
+        }
+        else{
+            window.location.hash = '';
+        }        
+     }
 
 	
 });

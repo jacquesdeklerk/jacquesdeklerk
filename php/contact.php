@@ -80,7 +80,7 @@
         	"From: $name\n".
         	"Email Address: $email\n";
         	
-        	$subject = "Email from website";
+        	$subject = "Email from " . DOMAIN;
         	$mail = mail(CONTACT_EMAIL, $subject, $msg,
              "From: ".$name." <".$email.">\r\n"
             ."Reply-To: ".$email."\r\n"
