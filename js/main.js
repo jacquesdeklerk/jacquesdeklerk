@@ -21,14 +21,32 @@ $(document).ready(function(){
 	     $contact.addClass('expanded');
 	}
 	
-	$('.project-head, .images').click(function(e) {
-	    e.preventDefault();
-		$(this).parents('article').toggleClass('inactive').toggleClass('expanded');
-	});
 	
 	
-	//add expand symbol to headings
-	$('.project-heading').prepend('<a href="#" class="expander"></a>');
+	
+	
+	//Expand project
+	
+	$('.project').click(function(e) {
+	    
+	    var $current = $(this);
+	    
+	    if($current.hasClass('expanded')){
+	        if( !$(e.target).hasClass('bottom-expander') && !$(e.target).parent().hasClass('bottom-expander')) {
+                return;
+            }
+	    }
+
+        $current.toggleClass('expanded');    
+        
+        //close all other expanded projects
+        $('.project').each(function(i) {
+            $(this).not($current).removeClass('expanded');       
+        });
+        
+        window.scrollTo(0, $current.offset().top);        
+         
+    });
 	
 	
 	$('.project').hover(
@@ -120,8 +138,6 @@ $(document).ready(function(){
                         $('#form-status').text('Your message has been sent...');
                    }
                    
-                   //$('#form-status').html(data);
-                   
                    
                },
                complete: function(data,status){
@@ -129,9 +145,7 @@ $(document).ready(function(){
                    $('#contact-form')[0].reset();
                },
                error: function(obj,status,error){
-                   console.log('ERROR!');
-                   //console.log(status); // show response from the php script.
-                   
+                   console.log('ERROR!');                   
                    $('#form-status').text('An error occurred, please try again.');
                }
                
