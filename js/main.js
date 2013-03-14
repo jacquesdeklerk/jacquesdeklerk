@@ -58,7 +58,6 @@ $(document).ready(function(){
 
     //toggle contact
     $('#contact-form-expander').click(function(e) {
-        var location = 
         e.preventDefault();
         $contact.toggleClass('expanded');       
         
