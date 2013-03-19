@@ -5,7 +5,7 @@
   text-indent: -9992px;
   display: inline-block;
   vertical-align: middle;
-  background: url(img/sprite.png) no-repeat;
+  background: url("img/sprt.png") no-repeat;
   position: relative;
   margin: 0 4px 4px 0;
   -webkit-filter: grayscale(1);
@@ -44,7 +44,7 @@
 /* line 41, ../scss/_icons.scss */
 .logo-css3, .logo-css3:before {
   width: 32px;
-  height: 36px;
+  height: 38px;
 }
 
 /* line 46, ../scss/_icons.scss */
@@ -55,8 +55,8 @@
 
 /* line 51, ../scss/_icons.scss */
 .logo-php, .logo-php:before {
-  width: 39px;
-  height: 19px;
+  width: 56px;
+  height: 29px;
 }
 
 /* line 56, ../scss/_icons.scss */
@@ -124,11 +124,11 @@
 
 /* line 113, ../scss/_icons.scss */
 .logo-php {
-  background-position: -243px 0;
+  background-position: -231px 0;
 }
 /* line 116, ../scss/_icons.scss */
 .logo-php:before {
-  background-position: -243px -42px;
+  background-position: -231px -42px;
 }
 
 /* line 122, ../scss/_icons.scss */
@@ -490,7 +490,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 330, ../scss/style.scss */
 .expander {
-  /*background: url(img/sprite.png) no-repeat 0 -85px;*/
   display: none;
   position: absolute;
   width: 24px;
@@ -676,7 +675,7 @@ input, textarea {
   display: block;
   width: 13px;
   height: 13px;
-  background: url(img/sprite.png) no-repeat 0 -112px;
+  background: url("img/sprt.png") no-repeat 0 -112px;
 }
 
 /* line 493, ../scss/style.scss */
@@ -841,7 +840,7 @@ input, textarea {
 }
 /* line 644, ../scss/style.scss */
 .js .bottom-expander div {
-  background: #fefefe url(img/sprite.png) no-repeat -40px -192px;
+  background: #fefefe url("img/sprt.png") no-repeat -40px -192px;
   text-indent: -9999px;
   display: inline-block;
   height: 100%;
@@ -974,15 +973,15 @@ input, textarea {
 }
 /* line 765, ../scss/style.scss */
 .contact-item #google-plus {
-  background: url(//ssl.gstatic.com/images/icons/gplus-32.png);
+  background: url("img/sprt.png") no-repeat -75px -126px;
 }
 /* line 769, ../scss/style.scss */
 .contact-item #twitter {
-  background: url(img/sprite.png) no-repeat 0 -125px;
+  background: url("img/sprt.png") no-repeat 0 -126px;
 }
 /* line 773, ../scss/style.scss */
 .contact-item.email a {
-  background: url(img/sprite.png) no-repeat 0 -155px;
+  background: url("img/sprt.png") no-repeat 0 -156px;
 }
 
 /* line 780, ../scss/style.scss */

@@ -6,7 +6,7 @@
     text-indent: -9992px;
     display: inline-block;
     vertical-align: middle;
-    background: url(img/sprite.png) no-repeat;
+    background: url($sprite) no-repeat;
     position: relative;
     margin: 0 4px 4px 0;
     
@@ -40,7 +40,7 @@
 
 .logo-css3, .logo-css3:before {
     width: 32px;
-    height: 36px;
+    height: 38px;
 }
 
 .logo-jquery, .logo-jquery:before {
@@ -49,8 +49,8 @@
 }
 
 .logo-php, .logo-php:before{
-    width: 39px;
-    height: 19px;
+    width: 56px;
+    height: 29px;
 }
 
 .logo-git, .logo-git:before{
@@ -111,10 +111,10 @@
 }
 
 .logo-php{
-    background-position: -243px 0;
+    background-position: -231px 0;
     
     &:before {
-        background-position: -243px -42px;
+        background-position: -231px -42px;
     }
     
 }
