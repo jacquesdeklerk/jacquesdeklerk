@@ -155,19 +155,27 @@ body {
 
 #logo {
     width: 120px;
+    height: 78px;
     display: inline-block;
     margin-right: $padding;
     
     @media (max-width: $breakpoint30) {
         width: 80px;
+        height: 54px;
         margin-right: 0.5em;
     } 
 } 
+
+.logo {
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDguMTAxIDE2Mi41NDEiPjxzdHlsZT4uc3R5bGUwe2ZpbGw6CSMxRTlCQjU7fTwvc3R5bGU+PHBvbHlnb24gcG9pbnRzPSIyMTkuOSwxIDIwNy4xLDgxLjggMTcxLjYsMSAxNzEuNiwxIDE3MS42LDEgMTIwLjksMSAxMTcuMiwxIDkyLjcsMSA3MS42LDEzNCAzMi43LDEzNCAzNS44LDExNC45IDcuNSwxMTQuOSAwLDE2Mi41IDI4LjIsMTYyLjUgMjguMiwxNjIuNSA5NS4zLDE2Mi41IDk1LjQsMTYyLjIgOTUuNCwxNjIuMiAxMTYuNCwyOS4yIDE1MS4yLDI5LjIgMTc0LjIsODEuOCAxMzQuNSwxMzQuMyAxMTEuNywxMzQuMyAxMDcuMiwxNjIuNSAxNDYsMTYyLjUgMTQ2LDE2Mi41IDE0Ni4xLDE2Mi41IDIwNy4xLDgxLjggMTk0LjMsMTYyLjUgMjIyLjUsMTYyLjUgMjQ4LjEsMSIgY2xhc3M9InN0eWxlMCIvPjwvc3ZnPg==) center center no-repeat;
+    vertical-align: middle;
+}
 
 
 
 #footer-logo {
     width: 40px;
+    height: 40px;
     float: right;
     padding-top: 8px;
     opacity: .7;
@@ -642,7 +650,7 @@ input, textarea {
         cursor: pointer;
         
         div {
-            background: $backgroundColor url($sprite) no-repeat -40px -192px;
+            background: $backgroundColor url($sprite) no-repeat -40px -194px;
             text-indent: -9999px;
             display: inline-block;
             height: 100%;
@@ -920,3 +928,5 @@ article p a{
         border-bottom-color: hsl(0, 1%, 50%);
     }
 }
+
+

@@ -2,7 +2,7 @@
 @import "compass/css3/filter";
 
 
-.logo {
+.icon {
     text-indent: -9992px;
     display: inline-block;
     vertical-align: middle;
@@ -29,63 +29,63 @@
    }
 }
 
-.logo:last-child {
+.icon:last-child {
     margin-right: 0;    
 }
 
-.logo-html5, .logo-html5:before {
+.icon-html5, .icon-html5:before {
     width: 30px;
     height: 42px;
 }
 
-.logo-css3, .logo-css3:before {
+.icon-css3, .icon-css3:before {
     width: 32px;
     height: 38px;
 }
 
-.logo-jquery, .logo-jquery:before {
+.icon-jquery, .icon-jquery:before {
     width: 75px;
     height: 18px;
 }
 
-.logo-php, .logo-php:before{
+.icon-php, .icon-php:before{
     width: 56px;
     height: 29px;
 }
 
-.logo-git, .logo-git:before{
+.icon-git, .icon-git:before{
     width: 38px;
     height: 38px;
 }
 
-.logo-design, .logo-design:before{
+.icon-design, .icon-design:before{
     width: 35px;
     height: 35px;
 }
 
-.logo-flash, .logo-flash:before{
+.icon-flash, .icon-flash:before{
     width: 33px;
     height: 34px;
 }
 
-.logo-flex, .logo-flex:before{
+.icon-flex, .icon-flex:before{
     width: 33px;
     height: 33px;
 }
 
-.logo-wordpress, .logo-wordpress:before{
+.icon-wordpress, .icon-wordpress:before{
     width: 38px;
     height: 36px;
 }
 
-.logo-drupal, .logo-drupal:before{
+.icon-drupal, .icon-drupal:before{
     width: 35px;
     height: 39px;
 }
 
 
 
-.logo-html5 {
+.icon-html5 {
     background-position: 0 0;  
     
     &:before {
@@ -93,7 +93,7 @@
     }  
 }
 
-.logo-css3 {
+.icon-css3 {
     background-position: -30px 0;
     
     &:before  {
@@ -101,7 +101,7 @@
     }
 }
 
-.logo-jquery {
+.icon-jquery {
     background-position: -288px 0;
     
     &:before  {
@@ -110,7 +110,7 @@
 
 }
 
-.logo-php{
+.icon-php{
     background-position: -231px 0;
     
     &:before {
@@ -119,7 +119,7 @@
     
 }
 
-.logo-git{
+.icon-git{
     background-position: -107px 0;
     
     &:before {
@@ -127,7 +127,7 @@
     }
 }
 
-.logo-design{
+.icon-design{
     background-position: -153px 0;
     
     &:before {
@@ -135,7 +135,7 @@
     }   
 }
 
-.logo-flash{
+.icon-flash{
     
     background-position: -370px 0;
     
@@ -144,7 +144,7 @@
     }
 }
 
-.logo-flex{
+.icon-flex{
     
     background-position: -410px 0;
     
@@ -154,7 +154,7 @@
     
 }
 
-.logo-wordpress{
+.icon-wordpress{
     background-position: -67px 0;
     
     &:before {
@@ -162,7 +162,7 @@
     }
 }
 
-.logo-drupal{
+.icon-drupal{
     
     background-position: -195px 0;
     
@@ -172,6 +172,6 @@
 }
 
 
-.logo:hover:before{
+.icon:hover:before{
     opacity: 1;
 }
