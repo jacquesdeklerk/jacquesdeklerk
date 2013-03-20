@@ -19,6 +19,7 @@ $contactsButtonHeight: 32px;
 $contactsButtonMarginTop: 15px;
 $contactsButtonMarginBottom: 7px;
 $sprite: 'img/sprt.png';
+$highResSprite: 'img/sprt@2x.png';
 $formWidth: 300px;
 $contactButtonsSpace: 48;
 $contactButtonsBottomSpace: $contactButtonsSpace + px;
@@ -540,7 +541,7 @@ input, textarea {
     height: 42px;
     
     .container {
-        padding: 0;
+        padding: 0 $padding;
     }
 }
 
@@ -844,9 +845,9 @@ input, textarea {
 
 #footer-nav {
     position: absolute;
-    right: 0;
+    right: $padding;
     top: 0;
-    padding: $padding/2 $padding $padding/2 0;
+    padding: $padding/2 0;
     
     a {
 
@@ -929,4 +930,19 @@ article p a{
     }
 }
 
+#html5-badge{
+    width: 145px;
+    height: 65px;
+    display: inline-block;
+    margin-top: -12px;
+}
 
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /*Style adjustments for high resolution devices*/ 
+    .icon {
+        background-image:url($highResSprite);
+    }
+}
