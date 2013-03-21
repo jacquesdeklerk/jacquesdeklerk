@@ -174,6 +174,7 @@ body {
 
 
 
+
 #footer-logo {
     width: 40px;
     height: 40px;
@@ -628,7 +629,8 @@ input, textarea {
             }
             
             .bottom-expander div {
-                background-position: 25px -192px;
+                background: $backgroundColor url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDEuNDIyIDE3Ny4zNDEiPjxwb2x5Z29uIGZpbGw9IiM2MzY0NjQiIHBvaW50cz0iMzAxLjQsMTUwLjcgMTUwLjcsMCAxNTAuNywwIDE1MC43LC0wIDAsMTUwLjcgMjYuNiwxNzcuMyAxNTAuNyw1My4zIDI3NC44LDE3Ny4zIi8+PC9zdmc+) no-repeat center center;
+                background-size: 25px;
                 @include box-shadow(0px 0px 0px 0px hsl(0, 1%, 40%));
             }
             
@@ -651,7 +653,8 @@ input, textarea {
         cursor: pointer;
         
         div {
-            background: $backgroundColor url($sprite) no-repeat -40px -194px;
+            background: $backgroundColor url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDEuNDIyIDE3Ny4zNDEiPjxwb2x5Z29uIGZpbGw9IiM2MzY0NjQiIHBvaW50cz0iMCwyNi42IDE1MC43LDE3Ny4zIDE1MC43LDE3Ny4zIDE1MC43LDE3Ny4zIDMwMS40LDI2LjYgMjc0LjgsMCAxNTAuNywxMjQuMSAyNi42LDAiLz48L3N2Zz4=) no-repeat center center;
+            background-size: 25px;
             text-indent: -9999px;
             display: inline-block;
             height: 100%;
@@ -668,7 +671,20 @@ input, textarea {
         }
     }
     
-    
+    &.no-svg {
+        
+        .project {
+            &.expanded{
+                .bottom-expander div {
+                    background-position: 25px -192px;
+                }
+            }
+        }
+        
+        .bottom-expander div{
+            background: $backgroundColor url($sprite) no-repeat -40px -194px;
+        }
+    }
 
     
     .article-body{  
@@ -747,44 +763,7 @@ input, textarea {
    z-index: 2; 
 }
 
-.contact-item {
-    display: inline-block;
-    margin:$contactsButtonMarginBottom;
-    vertical-align: top;
-    
-    a {
-       color:  $bodyColor;
-       min-height: $contactsButtonHeight;
-       display: block;
-       width: 32px;
-       height: 32px;
-       text-indent: -9999px;
-       text-align: left;
-       outline: 0;
-       
-       @include filter (grayscale(1)  opacity(0.7));
-       
-       &:hover {
-           @include filter (grayscale(0)  opacity(1));
-           @include transition(all 0.3s ease);
-       }
-       
-    }
-    
-    #google-plus{
-        background: url($sprite) no-repeat -75px -126px;
-    }
-    
-    #twitter {
-        background: url($sprite) no-repeat 0 -126px;
-    }
-    
-    &.email a{
-        background: url($sprite) no-repeat 0 -156px;
-    }
-    
-    
-}
+
 
 #contact-form {
     
@@ -937,12 +916,12 @@ article p a{
     margin-top: -12px;
 }
 
-@media print,
+/*@media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 120dpi) {
-    /*Style adjustments for high resolution devices*/ 
+    Style adjustments for high resolution devices
     .icon {
         background-image:url($highResSprite);
     }
-}
+}*/
