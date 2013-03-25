@@ -44,7 +44,7 @@ $(document).ready(function(){
             $(this).not($current).removeClass('expanded');       
         });
         
-        window.scrollTo(0, $current.offset().top);        
+        //window.scrollTo(0, $current.offset().top);        
          
     });
 	
