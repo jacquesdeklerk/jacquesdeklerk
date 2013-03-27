@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+   "use strict";
 	var $contact = $('#contact');
 	
 	//close contact if clicked outside
@@ -20,9 +20,6 @@ $(document).ready(function(){
 	if(window.location.hash === "#contact"){
 	     $contact.addClass('expanded');
 	}
-	
-	
-	
 	
 	
 	//Expand project
@@ -109,7 +106,7 @@ $(document).ready(function(){
             
             e.preventDefault();
             
-            console.log('submitting form');
+            //console.log('submitting form');
             
             var str = $(this).serialize(),                    
                 bPhpError = true,
@@ -118,7 +115,7 @@ $(document).ready(function(){
                 url = "php/contact.php",               
                 testurl = "php/tes.html";
                 
-            console.log(str);    
+            //console.log(str);    
                        
             $.ajax({
                type: "POST",
@@ -127,8 +124,8 @@ $(document).ready(function(){
                cache: false,
                success: function(data,status, obj)
                {
-                   console.log('ajax success');
-                   console.log(data); // show response from the php script.                  
+                   //console.log('ajax success');
+                   //console.log(data); // show response from the php script.                  
                    
                    if(data !== 'OK'){
                        $('#form-status').html(data);
@@ -140,11 +137,11 @@ $(document).ready(function(){
                    
                },
                complete: function(data,status){
-                   console.log('this: ' , $(this));
+                   //console.log('this: ' , $(this));
                    $('#contact-form')[0].reset();
                },
                error: function(obj,status,error){
-                   console.log('ERROR!');                   
+                   //console.log('ERROR!');                   
                    $('#form-status').text('An error occurred, please try again.');
                }
                
@@ -165,5 +162,3 @@ $(document).ready(function(){
 
 	
 });
-
-
