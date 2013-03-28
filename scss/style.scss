@@ -95,6 +95,8 @@ body {
   color: $textColor;
   font-family: 'Muli',sans-serif;
   font-style:  normal;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -616,6 +618,7 @@ input, textarea {
             .bottom-expander div{
                 bottom: -10px;
                 /*background-position-y: -194px;*/
+               /*@include transform (translateY(10px);*/
             }
         }
         
