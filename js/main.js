@@ -151,13 +151,20 @@ $(document).ready(function(){
             return false;
      });
      
-     function toggleContactHash(element){
+     function toggleContactHash(element){      
+         
         if(element.hasClass('expanded')){
              window.location.hash = 'contact';
         }
-        else{
-            window.location.hash = '';
-            history.replaceState('', document.title, window.location.pathname);
+        else{            
+            if($('html').hasClass('history')){
+               history.replaceState('', document.title, window.location.pathname); 
+            }
+            else{
+                window.location.hash = '';
+            }
+            
+            
         }        
      }
 
