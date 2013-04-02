@@ -944,18 +944,6 @@ input, textarea {
   -o-transform: translateZ(0);
   transform: translateZ(0);
 }
-/* line 724, ../scss/style.scss */
-.js #contact.expanded #contact-wrapper #contact-form-expander {
-  -webkit-filter: grayscale(0) opacity(1);
-  -moz-filter: grayscale(0) opacity(1);
-  filter: grayscale(0) opacity(1);
-}
-/* line 729, ../scss/style.scss */
-.js #contact.expanded #contact-form {
-  -webkit-box-shadow: inset 0px 0px 5px 0px #676565;
-  -moz-box-shadow: inset 0px 0px 5px 0px #676565;
-  box-shadow: inset 0px 0px 5px 0px #676565;
-}
 /* line 734, ../scss/style.scss */
 .js #contact #form-status {
   color: #151414;
