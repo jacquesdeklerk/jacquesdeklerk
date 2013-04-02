@@ -157,6 +157,7 @@ $(document).ready(function(){
         }
         else{
             window.location.hash = '';
+            history.replaceState('', document.title, window.location.pathname);
         }        
      }
 
