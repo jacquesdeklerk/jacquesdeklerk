@@ -218,22 +218,18 @@
     /*technologies*/
     
     .icon-html5 {
-        background-position: 0 0;  
-        
-        &:before {
-            background-position: 0 -42px;
-        }  
+        background-position: 0 0 !important;        
     }
     
     .icon-css3 {
-        background-position: -30px 0;
+        background-position: -30px 0 !important;
         
         width: 32px;
         height: 38px;
     }
     
     .icon-jquery {
-        background-position: -288px 0;
+        background-position: -288px 0 !important;
         
         width: 75px;
         height: 18px;
@@ -241,62 +237,36 @@
     }
     
     .icon-php{
-        background-position: -231px 0;
-        
-        &:before {
-            background-position: -231px -42px;
-        }
-        
+        background-position: -231px 0 !important;
     }
     
     .icon-git{
-        background-position: -107px 0;
-        
-        &:before {
-            background-position: -107px -42px;
-        }
+        background-position: -107px 0 !important;
     }
     
     .icon-design{
-        background-position: -153px 0;
-        
-        &:before {
-            background-position: -153px -42px;
-        }   
+        background-position: -153px 0 !important;  
     }
     
     .icon-flash{
         
-        background-position: -370px 0;
+        background-position: -370px 0 !important;
         width: 33px;
         height: 34px;
     }
     
     .icon-flex{
         
-        background-position: -410px 0;
-        
-        &:before {
-            
-        }
-        
+        background-position: -410px 0 !important;
     }
     
     .icon-wordpress{
-        background-position: -67px 0;
-        
-        &:before {
-            background-position: -67px -42px;
-        }
+        background-position: -67px 0 !important;
     }
     
     .icon-drupal{
         
-        background-position: -195px 0;
-        
-        &:before {
-            
-        }
+        background-position: -195px 0 !important;
     }
     
 }

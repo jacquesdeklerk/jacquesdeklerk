@@ -1,4 +1,4 @@
 /* line 1, ../scss/ie8-and-down.scss */
-.contact-item, .logo {
+.contact-item, .logo, .icon {
   display: inline;
 }

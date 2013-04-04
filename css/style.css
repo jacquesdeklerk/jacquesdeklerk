@@ -195,69 +195,49 @@
 }
 /* line 220, ../scss/_icons.scss */
 .no-svg .icon-html5 {
-  background-position: 0 0;
+  background-position: 0 0 !important;
 }
-/* line 223, ../scss/_icons.scss */
-.no-svg .icon-html5:before {
-  background-position: 0 -42px;
-}
-/* line 228, ../scss/_icons.scss */
+/* line 224, ../scss/_icons.scss */
 .no-svg .icon-css3 {
-  background-position: -30px 0;
+  background-position: -30px 0 !important;
   width: 32px;
   height: 38px;
 }
-/* line 235, ../scss/_icons.scss */
+/* line 231, ../scss/_icons.scss */
 .no-svg .icon-jquery {
-  background-position: -288px 0;
+  background-position: -288px 0 !important;
   width: 75px;
   height: 18px;
 }
-/* line 243, ../scss/_icons.scss */
+/* line 239, ../scss/_icons.scss */
 .no-svg .icon-php {
-  background-position: -231px 0;
+  background-position: -231px 0 !important;
 }
-/* line 246, ../scss/_icons.scss */
-.no-svg .icon-php:before {
-  background-position: -231px -42px;
-}
-/* line 252, ../scss/_icons.scss */
+/* line 243, ../scss/_icons.scss */
 .no-svg .icon-git {
-  background-position: -107px 0;
+  background-position: -107px 0 !important;
 }
-/* line 255, ../scss/_icons.scss */
-.no-svg .icon-git:before {
-  background-position: -107px -42px;
-}
-/* line 260, ../scss/_icons.scss */
+/* line 247, ../scss/_icons.scss */
 .no-svg .icon-design {
-  background-position: -153px 0;
+  background-position: -153px 0 !important;
 }
-/* line 263, ../scss/_icons.scss */
-.no-svg .icon-design:before {
-  background-position: -153px -42px;
-}
-/* line 268, ../scss/_icons.scss */
+/* line 251, ../scss/_icons.scss */
 .no-svg .icon-flash {
-  background-position: -370px 0;
+  background-position: -370px 0 !important;
   width: 33px;
   height: 34px;
 }
-/* line 275, ../scss/_icons.scss */
+/* line 258, ../scss/_icons.scss */
 .no-svg .icon-flex {
-  background-position: -410px 0;
+  background-position: -410px 0 !important;
 }
-/* line 285, ../scss/_icons.scss */
+/* line 263, ../scss/_icons.scss */
 .no-svg .icon-wordpress {
-  background-position: -67px 0;
+  background-position: -67px 0 !important;
 }
-/* line 288, ../scss/_icons.scss */
-.no-svg .icon-wordpress:before {
-  background-position: -67px -42px;
-}
-/* line 293, ../scss/_icons.scss */
+/* line 267, ../scss/_icons.scss */
 .no-svg .icon-drupal {
-  background-position: -195px 0;
+  background-position: -195px 0 !important;
 }
 
 /*border box for all elements*/
@@ -735,7 +715,7 @@ input, textarea {
   display: block;
   width: 13px;
   height: 13px;
-  background: url("img/sprt.png") no-repeat 0 -112px;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDQuNzYxIDI4OC43NTEiPjxwb2x5Z29uIGZpbGw9IiNGMkYyRjIiIHBvaW50cz0iMzA0LjYsMC4xIDMwNC42LDAgMTY5LjUsMCAxNjkuNSwzMi4xIDI0Ny45LDMyLjEgMTIzLjYsMTQ5LjggMTQ3LjYsMTcyLjUgMjcwLjksNTUuNiAyNzAuOSwxMjguMiAzMDQuOCwxMjguMiAzMDQuOCwwLjEiLz48cG9seWdvbiBmaWxsPSIjRjJGMkYyIiBwb2ludHM9IjIzNi45LDE2MC43IDIwMywxNjAuNyAyMDMsMjU2LjcgMzMuOSwyNTYuNyAzMy45LDk2LjIgMTM1LjEsOTYuMiAxMzUuMSw2NC4yIDMzLjksNjQuMiAwLDY0LjIgMCw2NC4yIDAsOTYuMiAwLDk2LjIgMCwyNTYuNyAwLDI4OC44IDMzLjksMjg4LjggMjAzLDI4OC44IDIzNi45LDI4OC44IDIzNywyODguOCAyMzcsMjU2LjcgMjM2LjksMjU2LjciLz48L3N2Zz4=) no-repeat;
 }
 
 /* line 469, ../scss/style.scss */
