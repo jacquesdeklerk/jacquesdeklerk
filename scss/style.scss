@@ -27,22 +27,11 @@ $contactButtonsBottomSpace: $contactButtonsSpace + px;
 $basepx: 16;
 
 
-$total-columns  : 2;             
-$column-width   : 4em;            
-$gutter-width   : $padding;            
-$grid-padding   : $gutter-width; 
+$breakpoint30: 30rem;
+$breakpoint53: 53rem;
+$breakpoint60: 60rem;
+$breakpoint70: 70rem;
 
-$container-style: fluid;
-
-$breakpoint30: 30em;
-$breakpoint50: 50em;
-$breakpoint60: 60em;
-$breakpoint70: 70em;
-
-$media-layout-medium: $breakpoint50 4;
-$media-layout-large: $breakpoint70 6;
-
-@import "susy";
 @import "icons";
 
 @import "compass/css3/transition";
@@ -112,7 +101,7 @@ body {
             z-index: 1;
         } 
         
-        @media (min-width: $breakpoint50) {
+        @media (min-width: $breakpoint53) {
             padding-bottom: $padding;
         }      
     }
@@ -138,7 +127,7 @@ body {
             font-size: 60%;
         }
     } 
-    @media (min-width: $breakpoint50) {
+    @media (min-width: $breakpoint53) {
         padding-bottom: 0;
     } 
     
@@ -161,78 +150,14 @@ body {
 
 
 .images {
-    @include span-columns(2 omega,2);
     
-    @include at-breakpoint($media-layout-medium){
-       
-       @include span-columns(2 omega,4); 
+    margin: 0 auto;
+    
+    img {
+        width: 600px;
     }
     
-     @include at-breakpoint($media-layout-large){
-       
-       @include span-columns(4 omega,6); 
-    }
 }
-
-.article-body, .project-head, {
-    @include span-columns(2 omega,2);
-    
-    @include at-breakpoint($media-layout-medium){
-       
-       @include span-columns(2,4); 
-    }
-    
-    @include at-breakpoint($media-layout-large){
-       
-       @include span-columns(2,6); 
-    }
-}
-
-#about {
-    @include span-columns(2,2);
-    
-    @include at-breakpoint($media-layout-medium){
-       
-       @include span-columns(2,4); 
-    }
-    
-    @include at-breakpoint($media-layout-large){
-       
-       @include span-columns(3,6); 
-       
-           p {
-            margin-bottom: 0;
-        }
-    }   
-}
-
-#skills{
-    @include span-columns(2,2);
-    
-    @include at-breakpoint($media-layout-medium){
-       
-       @include span-columns(2 omega,4); 
-    }
-    
-    @include at-breakpoint($media-layout-large){
-       
-       @include span-columns(2,6); 
-    }
-}
-
-/*#footer-nav {
-     @include span-columns(2,2);
-    
-    @include at-breakpoint($media-layout-medium){
-       
-       @include span-columns(2 omega,4); 
-    }
-    
-    @include at-breakpoint($media-layout-large){
-       
-       @include span-columns(1 omega,6); 
-    }
-}*/
 
 #nav li {
     display: inline;
@@ -248,12 +173,20 @@ h1,h2,h3,h4,h5,h6 {
     max-width: 1920px;
     padding: $padding;
     position: relative;
+    margin: 0 auto;
     
-    @include container;
     
-    @media (min-width: $breakpoint50) {
-        margin: 0 auto;
-        width: 90%; 
+    @media (min-width: $breakpoint53) {        
+        width: 48rem; 
+    }
+    
+    @media (min-width: $breakpoint60) {
+        width: 58rem; 
+    }
+    
+    @media (min-width: $breakpoint70) {
+        width: 68rem; 
+        background: yellow;
     }
 }
 
@@ -276,11 +209,6 @@ h1,h2,h3,h4,h5,h6 {
     padding-top: 30px;
     margin-top: $padding;
     position: relative;
-    
-    /*@include transition(all 0.5s ease);
-
-   padding-left: $articleNegativeMargin;
-   margin-left: -$articleNegativeMargin;*/
 
     img{
         border: 1px solid #ccc;
@@ -307,7 +235,7 @@ h1,h2,h3,h4,h5,h6 {
 
     display: none;
     
-    @media (min-width: $breakpoint50) {
+    @media (min-width: $breakpoint53) {
         display: block;
     }  
 
@@ -394,8 +322,6 @@ h1,h2,h3,h4,h5,h6 {
 
 
 .project img {
-    max-width: 100%;
-    height: auto;
     vertical-align: top;
 }
 
@@ -489,7 +415,7 @@ input, textarea {
     top: -1.3em;
     left: 0;
     
-    @media (min-width: $breakpoint50) {
+    @media (min-width: $breakpoint53) {
     top: -0.7em;
     left: -2.5em;
   }
@@ -574,7 +500,7 @@ input, textarea {
         
         cursor: pointer;
         
-        @media (min-width: $breakpoint50) {
+        @media (min-width: $breakpoint53) {
             height: 160px;
         }
         
@@ -892,3 +818,29 @@ article p a{
         background-image:url($highResSprite);
     }
 }*/
+
+
+/*old school media queries - to cut down on file size*/
+
+@media (min-width: $breakpoint30) {
+    
+}
+
+@media (min-width: $breakpoint53) {
+    
+    .images{
+        img {
+            width: 356px;
+        }
+    }
+            
+}
+
+@media (min-width: $breakpoint60) {
+            
+}
+
+@media (min-width: $breakpoint70) {
+            
+}
+
