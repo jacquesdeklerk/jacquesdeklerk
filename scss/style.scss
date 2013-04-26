@@ -30,7 +30,8 @@ $basepx: 16;
 $breakpoint30: 30rem;
 $breakpoint53: 53rem;
 $breakpoint60: 60rem;
-$breakpoint70: 70rem;
+$breakpoint75: 75rem;
+$breakpoint95: 95rem;
 
 @import "icons";
 
@@ -51,16 +52,6 @@ $breakpoint70: 70rem;
 @mixin vertAlignCenter($wdth) {
   width: $wdth;
   margin: 0 auto;
-}
-
-@mixin columns($cols) {
-    .column{
-        width: floor( percentage((1/$cols)) );
-    }
-    
-    .images{
-        width: floor( percentage(2*(1/$cols)) );               
-    }
 }
 
 
@@ -143,19 +134,17 @@ body {
    z-index: 1; 
 }
 
-.images, .column {
+.project-image, .column {
     display: inline-block; 
     vertical-align: top;
 }
 
 
-.images {
+.project-image {
     
     margin: 0 auto;
-    
-    img {
-        width: 600px;
-    }
+    width: 600px;
+    display: block;
     
 }
 
@@ -174,20 +163,6 @@ h1,h2,h3,h4,h5,h6 {
     padding: $padding;
     position: relative;
     margin: 0 auto;
-    
-    
-    @media (min-width: $breakpoint53) {        
-        width: 48rem; 
-    }
-    
-    @media (min-width: $breakpoint60) {
-        width: 58rem; 
-    }
-    
-    @media (min-width: $breakpoint70) {
-        width: 68rem; 
-        background: yellow;
-    }
 }
 
 #masthead, #mastfooter, #legal{
@@ -495,8 +470,8 @@ input, textarea {
     
     .project {
         height: 200px;
-        overflow-y: hidden;
-        overflow-x: visible;
+        overflow: hidden;
+
         
         cursor: pointer;
         
@@ -828,19 +803,57 @@ article p a{
 
 @media (min-width: $breakpoint53) {
     
-    .images{
-        img {
+    .container{
+        width: 48rem; 
+    } 
+    
+    .project-image{
             width: 356px;
-        }
+            float: right;
+    }
+    
+    .article-body, .project-head , #about {
+        float: left;
+        width: 20rem;
+    }
+    
+    #about {
+        margin-right: 1.5em;
     }
             
 }
 
-@media (min-width: $breakpoint60) {
-            
+
+@media (min-width: $breakpoint75) {
+    .container{
+        width: 70rem; 
+    } 
+    
+    .project-image{
+            width: 570px;
+            float: right;
+    }
+    
+    .article-body, .project-head, #about {
+        float: left;
+        width: 30rem;
+    }
 }
 
-@media (min-width: $breakpoint70) {
-            
-}
 
+
+@media (min-width: $breakpoint95) {
+    .container{
+        width: 90rem; 
+    } 
+    
+    .project-image{
+            width: 900px;
+            float: right;
+    }
+    
+    .article-body, .project-head , #about {
+        float: left;
+        width: 30rem;
+    }
+}
