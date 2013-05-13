@@ -204,84 +204,6 @@ h1,h2,h3,h4,h5,h6 {
 
 
 
-
-
-.expander {
-
-    display: none;
-    
-    @media (min-width: $breakpoint53) {
-        display: block;
-    }  
-
-    position: absolute;
-    width: $expanderWidth;
-    height: $expanderWidth;
-    top: 0;
-    left: - $expanderWidth;   
-    opacity: 0;
-    text-decoration: none;
-    font-weight: bold;
-    color:$textColor;
-    background: #fff;
-    z-index: 1;
-    outline: 0;
-    
-    @include border-radius($expanderWidth);
-    
-    border: 1px solid $textColor;
-    
-    $iconX: 12px;
-    $iconY: 2px;
-    
-    box-sizing: content-box;
-    
-    
-    &:after {
-        content: '';
-        left:$expanderWidth/2 - $iconX/2;
-        top:$expanderWidth/2 - $iconY/2;
-        width:$iconX;
-        height:$iconY;
-        background:$textColor;
-        display: block;
-        position: absolute;
-    }
-
-    &:before {
-        content: '';
-        z-index:10;
-        left:$expanderWidth/2 - $iconY/2;
-        top:$expanderWidth/2 - $iconX/2;
-        width:$iconY;
-        height:$iconX;
-        background:$textColor;
-        display: block;
-        position: absolute;
-    }
-}
-
-.focused .expander{
-    opacity: 1;
-     @include transition(all 0.3s ease);  
-    @include transform( translateX(-15px) );
-}
-
-.expanded .expander{
-    opacity: 1;
-    @include transition(all 0.3s ease);  
-    @include transform(translateX(-15px) rotate(-45deg) );
-    
-     &:after {
-         background:$closeButtonColor;
-     }
-     
-     &:before {
-         background:$closeButtonColor;
-     }
-     
-}
-
 .article-footer {
     padding-top: $padding;
 }
@@ -468,6 +390,18 @@ input, textarea {
 
 .js {
     
+    /*check if body has hover class (set in JS) to disbale hover effects during scroll*/
+    .hover {
+        .project:hover:not(.expanded){
+            .bottom-expander div{
+                bottom: -10px;
+               /*@include transform (translateY(10px);*/
+            }
+        }
+        
+        
+    }
+    
     .project {
         height: 200px;
         overflow: hidden;
@@ -478,15 +412,7 @@ input, textarea {
         @media (min-width: $breakpoint53) {
             height: 160px;
         }
-        
-        &:hover{
-            .bottom-expander div{
-                bottom: -10px;
-                /*background-position-y: -194px;*/
-               /*@include transform (translateY(10px);*/
-            }
-        }
-        
+
         &.expanded{
             
             height: auto;
@@ -502,11 +428,7 @@ input, textarea {
                 @include box-shadow(0px 0px 0px 0px hsl(0, 1%, 40%));
             }
             
-            &:hover{
-                .bottom-expander div{
-                    bottom: -5px;
-                }
-            }
+            
         }
     }
     
