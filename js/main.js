@@ -1,38 +1,85 @@
 $(document).ready(function(){
    "use strict";
-	var $contact = $('#contact');
-	
-	//close contact if clicked outside
-	$(document).mouseup(function (e){
+    var $contact = $('#contact'),
+       enableTimer = 0; // Used to track the enabling of hover effects
 
-	    if(e.target.hash === '#contact'){
-	       return false;
-	    }
-	    else{
-	        if($contact.has(e.target).length === 0){ 
+    function toggleContactHash(element){      
+         
+        if(element.hasClass('expanded')){
+             window.location.hash = 'contact';
+        }
+        else{            
+            if($('html').hasClass('history')){
+               history.replaceState('', document.title, window.location.pathname); 
+            }
+            else{
+                window.location.hash = '';
+            }
+            
+            
+        }        
+     }  
+       
+   /**
+     * Removes the hover class from the body. Hover styles
+     * are reliant on this class being present
+     */
+    function removeHoverClass() {
+      document.body.classList.remove('hover');
+    }
+    
+    /**
+     * Adds the hover class to the body. Hover styles
+     * are reliant on this class being present
+     */
+    function addHoverClass() {
+      document.body.classList.add('hover');
+    }
+       
+   /*
+     * Listen for a scroll and use that to remove
+     * the possibility of hover effects
+     */
+    window.addEventListener('scroll', function() {
+      clearTimeout(enableTimer);
+      removeHoverClass();
+    
+      // enable after 0.7 seconds
+      enableTimer = setTimeout(addHoverClass, 2000);
+    }, false);
+    
+    
+    //close contact if clicked outside
+    $(document).mouseup(function (e){
+
+        if(e.target.hash === '#contact'){
+           return false;
+        }
+        else{
+            if($contact.has(e.target).length === 0){ 
                 $contact.removeClass('expanded');
                 toggleContactHash($contact);
             }
-	    }
+        }
     });
     
-	//expand contact section if hash is set
-	if(window.location.hash === "#contact"){
-	     $contact.addClass('expanded');
-	}
-	
-	
-	//Expand project
-	
-	$('.project').click(function(e) {
-	    
-	    var $current = $(this);
-	    
-	    if($current.hasClass('expanded')){
-	        if( !$(e.target).hasClass('bottom-expander') && !$(e.target).parent().hasClass('bottom-expander')) {
+    //expand contact section if hash is set
+    if(window.location.hash === "#contact"){
+         $contact.addClass('expanded');
+    }
+    
+    
+    //Expand project
+    
+    $('.project').click(function(e) {
+        
+        var $current = $(this);
+        
+        if($current.hasClass('expanded')){
+            if( !$(e.target).hasClass('bottom-expander') && !$(e.target).parent().hasClass('bottom-expander')) {
                 return;
             }
-	    }
+        }
 
         $current.toggleClass('expanded');    
         
@@ -44,11 +91,15 @@ $(document).ready(function(){
         //window.scrollTo(0, $current.offset().top);        
          
     });
-	
-	
-	$('.project').hover(
+    
+    
+    $('.project').hover(
       function() {
-        $(this).toggleClass('focused');  
+          
+        if($('body').hasClass('hover')){
+            $(this).toggleClass('focused');     
+        }  
+
       }
     );
     
@@ -102,7 +153,7 @@ $(document).ready(function(){
       $("#contact-form").append('<input type="hidden" id = "first_foil" name="first_foil" value="'+txt+'" />');
     });     
 
-	$("#contact-form").submit(function(e){                                                          
+    $("#contact-form").submit(function(e){                                                          
             
             e.preventDefault();
             
@@ -151,22 +202,5 @@ $(document).ready(function(){
             return false;
      });
      
-     function toggleContactHash(element){      
-         
-        if(element.hasClass('expanded')){
-             window.location.hash = 'contact';
-        }
-        else{            
-            if($('html').hasClass('history')){
-               history.replaceState('', document.title, window.location.pathname); 
-            }
-            else{
-                window.location.hash = '';
-            }
-            
-            
-        }        
-     }
-
-	
+     
 });
