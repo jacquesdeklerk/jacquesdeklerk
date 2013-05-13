@@ -84,9 +84,9 @@ $(document).ready(function(){
         $current.toggleClass('expanded');    
         
         //close all other expanded projects
-        $('.project').each(function(i) {
-            $(this).not($current).removeClass('expanded');       
-        });
+       //$('.project').each(function(i) {
+            //$(this).not($current).removeClass('expanded');       
+        //});
         
         //window.scrollTo(0, $current.offset().top);        
          
