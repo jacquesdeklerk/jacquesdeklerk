@@ -8,7 +8,7 @@
   display: inline-block;
   margin-right: 1.25em;
 }
-@media (max-width: 30rem) {
+@media (max-width: 31rem) {
   /* line 6, ../scss/_icons.scss */
   #logo {
     width: 80px;
@@ -301,7 +301,7 @@ body {
   position: relative;
   z-index: 1000;
 }
-@media (max-width: 30rem) {
+@media (max-width: 31rem) {
   /* line 111, ../scss/style.scss */
   #masthead hgroup {
     font-size: 60%;
@@ -335,7 +335,7 @@ body {
 /* line 143, ../scss/style.scss */
 .project-image {
   margin: 0 auto;
-  width: 600px;
+  width: 280px;
   display: block;
 }
 
@@ -1022,47 +1022,197 @@ article p a:hover {
   }
 
   /* line 815, ../scss/style.scss */
+  #ladl .project-image {
+    height: 205px;
+  }
+
+  /* line 819, ../scss/style.scss */
+  #In-search-of-health .project-image {
+    height: 266px;
+  }
+
+  /* line 823, ../scss/style.scss */
+  #supreme-styrene .project-image {
+    height: 276px;
+  }
+
+  /* line 827, ../scss/style.scss */
+  #mikado .project-image {
+    height: 231px;
+  }
+
+  /* line 831, ../scss/style.scss */
+  #santini-mobile .project-image {
+    height: 219px;
+  }
+
+  /* line 835, ../scss/style.scss */
+  #fairmade .project-image {
+    height: 266px;
+  }
+
+  /* line 839, ../scss/style.scss */
+  #cjvhPrinsloo .project-image {
+    height: 246px;
+  }
+
+  /* line 843, ../scss/style.scss */
+  #santini .project-image {
+    height: 184px;
+  }
+
+  /* line 847, ../scss/style.scss */
+  #santini-admin .project-image {
+    height: 222px;
+  }
+
+  /* line 851, ../scss/style.scss */
+  #shotopop .project-image {
+    height: 194px;
+  }
+
+  /* line 855, ../scss/style.scss */
   .article-body, .project-head, #about {
     float: left;
     width: 20rem;
   }
 
-  /* line 820, ../scss/style.scss */
+  /* line 860, ../scss/style.scss */
   #about {
     margin-right: 1.5em;
   }
 }
 @media (min-width: 75rem) {
-  /* line 828, ../scss/style.scss */
+  /* line 868, ../scss/style.scss */
   .container {
     width: 70rem;
   }
 
-  /* line 832, ../scss/style.scss */
+  /* line 872, ../scss/style.scss */
   .project-image {
     width: 570px;
     float: right;
   }
 
-  /* line 837, ../scss/style.scss */
+  /* line 878, ../scss/style.scss */
+  #ladl .project-image {
+    height: 328px;
+  }
+
+  /* line 882, ../scss/style.scss */
+  #In-search-of-health .project-image {
+    height: 426px;
+  }
+
+  /* line 886, ../scss/style.scss */
+  #supreme-styrene .project-image {
+    height: 441px;
+  }
+
+  /* line 890, ../scss/style.scss */
+  #mikado .project-image {
+    height: 369px;
+  }
+
+  /* line 894, ../scss/style.scss */
+  #santini-mobile .project-image {
+    height: 351px;
+  }
+
+  /* line 898, ../scss/style.scss */
+  #fairmade .project-image {
+    height: 425px;
+  }
+
+  /* line 902, ../scss/style.scss */
+  #cjvhPrinsloo .project-image {
+    height: 394px;
+  }
+
+  /* line 906, ../scss/style.scss */
+  #santini .project-image {
+    height: 294px;
+  }
+
+  /* line 910, ../scss/style.scss */
+  #santini-admin .project-image {
+    height: 355px;
+  }
+
+  /* line 914, ../scss/style.scss */
+  #shotopop .project-image {
+    height: 311px;
+  }
+
+  /* line 919, ../scss/style.scss */
   .article-body, .project-head, #about {
     float: left;
     width: 30rem;
   }
 }
 @media (min-width: 95rem) {
-  /* line 846, ../scss/style.scss */
+  /* line 928, ../scss/style.scss */
   .container {
     width: 90rem;
   }
 
-  /* line 850, ../scss/style.scss */
+  /* line 932, ../scss/style.scss */
   .project-image {
     width: 900px;
     float: right;
   }
 
-  /* line 855, ../scss/style.scss */
+  /* line 937, ../scss/style.scss */
+  #ladl .project-image {
+    height: 516px;
+  }
+
+  /* line 941, ../scss/style.scss */
+  #In-search-of-health .project-image {
+    height: 672px;
+  }
+
+  /* line 945, ../scss/style.scss */
+  #supreme-styrene .project-image {
+    height: 696px;
+  }
+
+  /* line 949, ../scss/style.scss */
+  #mikado .project-image {
+    height: 581px;
+  }
+
+  /* line 953, ../scss/style.scss */
+  #santini-mobile .project-image {
+    height: 554px;
+  }
+
+  /* line 957, ../scss/style.scss */
+  #fairmade .project-image {
+    height: 670px;
+  }
+
+  /* line 961, ../scss/style.scss */
+  #cjvhPrinsloo .project-image {
+    height: 621px;
+  }
+
+  /* line 965, ../scss/style.scss */
+  #santini .project-image {
+    height: 462px;
+  }
+
+  /* line 969, ../scss/style.scss */
+  #santini-admin .project-image {
+    height: 560px;
+  }
+
+  /* line 973, ../scss/style.scss */
+  #shotopop .project-image {
+    height: 489px;
+  }
+
+  /* line 979, ../scss/style.scss */
   .article-body, .project-head, #about {
     float: left;
     width: 30rem;
