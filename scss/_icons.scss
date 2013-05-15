@@ -8,6 +8,8 @@
     height: 78px;
     display: inline-block;
     margin-right: $padding;
+    position: relative;
+    z-index: 1000;
     
     @media (max-width: $breakpoint30) {
         width: 80px;

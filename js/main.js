@@ -44,8 +44,8 @@ $(document).ready(function(){
       clearTimeout(enableTimer);
       removeHoverClass();
     
-      // enable after 0.7 seconds
-      enableTimer = setTimeout(addHoverClass, 700);
+      // enable after 0.5 seconds
+      enableTimer = setTimeout(addHoverClass, 500);
     }, false);
     
     
