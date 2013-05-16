@@ -1,3 +1,38 @@
 .contact-item, .logo , .icon {
     display: inline;
+    float:left;
+}
+
+
+#masthead .container {
+    background: #101010;
+    z-index: 3;
+    
+    #contact-wrapper {
+        z-index: 1;
+    }
+}
+
+
+#masthead  #contact.expanded  {
+        
+    #contact-wrapper{         
+      margin-bottom: -370px;
+    } 
+
+}
+
+.project-image{
+        width: 900px;
+}
+
+.technologies{
+    border: 0;
+}
+
+.article-footer .button {
+    display: block;
+    width: 150px;
+    padding-right: 7px;
+    text-align: center;
 }

@@ -3,6 +3,16 @@ $(document).ready(function(){
     var $contact = $('#contact'),
        enableTimer = 0; // Used to track the enabling of hover effects
 
+    function bindEvent(el, eventName, eventHandler) {
+        if (el.addEventListener){
+            el.addEventListener(eventName, eventHandler, false); 
+        } 
+        else if (el.attachEvent){
+            el.attachEvent('on'+eventName, eventHandler);
+        }
+    }
+        
+    
     function toggleContactHash(element){      
          
         if(element.hasClass('expanded')){
@@ -25,7 +35,9 @@ $(document).ready(function(){
      * are reliant on this class being present
      */
     function removeHoverClass() {
-      document.body.classList.remove('hover');
+        //document.body.classList.remove('hover');
+        $('body').removeClass('hover');
+        
     }
     
     /**
@@ -33,20 +45,32 @@ $(document).ready(function(){
      * are reliant on this class being present
      */
     function addHoverClass() {
-      document.body.classList.add('hover');
+        //document.body.classList.add('hover');
+        
+        $('body').addClass('hover');
     }
        
    /*
      * Listen for a scroll and use that to remove
      * the possibility of hover effects
      */
-    window.addEventListener('scroll', function() {
+    
+    bindEvent(window, 'scroll', function () {
       clearTimeout(enableTimer);
       removeHoverClass();
     
       // enable after 0.5 seconds
       enableTimer = setTimeout(addHoverClass, 500);
-    }, false);
+    });
+        
+    
+   /*window.addEventListener('scroll', function() {
+      clearTimeout(enableTimer);
+      removeHoverClass();
+    
+      // enable after 0.5 seconds
+      enableTimer = setTimeout(addHoverClass, 500);
+    }, false);*/
     
     
     //close contact if clicked outside

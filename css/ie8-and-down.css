@@ -1,4 +1,38 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/wamp\/www\/jacquesdeklerk\/scss\/ie8-and-down\.scss}line{font-family:\000031}}
+/* line 1, ../scss/ie8-and-down.scss */
 .contact-item, .logo, .icon {
   display: inline;
+  float: left;
+}
+
+/* line 7, ../scss/ie8-and-down.scss */
+#masthead .container {
+  background: #101010;
+  z-index: 3;
+}
+/* line 11, ../scss/ie8-and-down.scss */
+#masthead .container #contact-wrapper {
+  z-index: 1;
+}
+
+/* line 19, ../scss/ie8-and-down.scss */
+#masthead #contact.expanded #contact-wrapper {
+  margin-bottom: -370px;
+}
+
+/* line 25, ../scss/ie8-and-down.scss */
+.project-image {
+  width: 900px;
+}
+
+/* line 29, ../scss/ie8-and-down.scss */
+.technologies {
+  border: 0;
+}
+
+/* line 33, ../scss/ie8-and-down.scss */
+.article-footer .button {
+  display: block;
+  width: 150px;
+  padding-right: 7px;
+  text-align: center;
 }

@@ -623,7 +623,7 @@ input, textarea {
 
 /* line 410, ../scss/style.scss */
 .js {
-  /*check if body has hover class (set in JS) to disbale hover effects during scroll*/
+  /*check if body has hover class (set in JS) to disable hover effects during scroll*/
 }
 /* line 415, ../scss/style.scss */
 .js .hover .project:hover:not(.expanded) .bottom-expander div {
