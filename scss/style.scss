@@ -344,6 +344,7 @@ input, textarea {
     position: relative;
     z-index: 1;
     
+    
     #contact-options {
         margin: 0;
         padding: 0 $padding;
@@ -364,6 +365,24 @@ input, textarea {
     
     input {
         display: block;
+    }
+    
+    
+}
+
+#contact-form {
+    text-align: left;
+    
+    input{
+        height: 26px;
+    }
+    
+    textarea {
+        height: 150px;
+    }
+    
+    #form-submit {
+        height: auto;
     }
     
     
@@ -487,7 +506,7 @@ input, textarea {
 
         background: $barColor;
         
-        border-bottom:$contactButtonsBottomSpace solid $barColor;
+        //border-bottom:$contactButtonsBottomSpace solid $barColor;
         
         position: absolute;
         width: 100%;
@@ -500,20 +519,16 @@ input, textarea {
         }
     
         #contact-wrapper {
-            margin-bottom: - $contactButtonsBottomSpace;
+            //margin-bottom: - $contactButtonsBottomSpace;
         }
 
         &.expanded  #contact-wrapper{         
             //@include transform(translateY(100%) translateX(0) );  
             
             
-           margin-bottom: -410px;
+           margin-bottom: -360px;
             @include transition(margin-bottom .5s ease);
             @include transform(translateZ(0));  
-            
-            #contact-form-expander {
-                //@include filter (grayscale(0)  opacity(1));
-            }
         } 
         
         &.expanded #contact-form{
@@ -540,12 +555,17 @@ input, textarea {
 
     
      #contact-form-wrapper {
-        height: $contactFormHeight;
+        //height: $contactFormHeight;
     }
     
     #contact-form {
         @include border-radius(0 0 15px 15px);
+        
+        textarea {
+            resize: none;
+        }
     }
+    
 
 }
 
@@ -789,22 +809,19 @@ article p a{
     .js {
         #contact #contact-options {
             display: inline-block;
-            position: absolute;
-            right: 0;
+            //position: absolute;
+            //right: 0;
         }  
         
         #contact #contact-wrapper {
             margin-bottom: 0;
+            text-align: right;
         } 
         
-         #contact.expanded  #contact-wrapper{         
-
-           margin-bottom: -360px;
-        }
-        
         #contact-form {
+            display: inline-block;
             width: 400px;
-            float: right; 
+            //float: right; 
             @include border-radius(0 0 0 15px);          
         }  
     }

@@ -41,6 +41,7 @@
     display: inline-block;
     margin:$contactsButtonMarginBottom;
     vertical-align: top;
+    outline: none;
     
     .icon {
        color:  $bodyColor;
@@ -76,6 +77,7 @@
     
     &.email a{
         background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzOTYuODczIDI0NS4wNDYiPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjRkZGRkZGIiBkPSJNMjc2LjIxNSAxMDcuMTk0bDEyMS4yMjEtODkuMzV2MjI2LjE0M0wyNzYuMjE1IDEwNy4xOTR6IE0yLjA2OSAwLjQ0N2gzOTQuMzhMMTk5LjI2MiAxNDUuNzk5TDIuMDY5IDAuNDQ3eiBNMC41NjQgMjQ0LjU3OUwwLjkgMTcuNzAybDEyMS40MDQgODkuNDkyTDAuNTY0IDI0NC41Nzl6IE0xOTkuMjEzIDE2My45IHYwLjA3MmwwLjA0OS0wLjAzN2wwLjA1IDAuMDM3di0wLjA3Mmw2Ny4xOTEtNDkuNTNsMTE2LjIxMyAxMzEuMTRIMTUuODFsMTE2LjIwNy0xMzEuMTRMMTk5LjIxMyAxNjMuODgzeiIvPjwvc3ZnPg==) no-repeat center center;
+        outline: none;
     }
     
     
