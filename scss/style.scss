@@ -23,7 +23,7 @@ $highResSprite: 'img/sprt@2x.png';
 $formWidth: 300px;
 $contactButtonsSpace: 48;
 $contactButtonsBottomSpace: $contactButtonsSpace + px;
-
+$contactFormHeight: 370px;
 $basepx: 16;
 
 
@@ -71,6 +71,7 @@ body {
   font-style:  normal;
   margin: 0;
   padding: 0;
+  min-width: 320px;
 }
 
 
@@ -81,20 +82,23 @@ body {
     
     //border-bottom: 6px solid #363636;
     
-    .container {        
+    .container:not(#contact-wrapper){        
         background: $barColor;
         
         z-index: 3;
         
         padding: $padding $padding $padding/2 $padding;
         
-        @media (min-width: $breakpoint60) {
-            z-index: 1;
-        } 
+         
         
         @media (min-width: $breakpoint53) {
             padding-bottom: $padding;
-        }      
+        }  
+        
+    }
+    
+    #contact-wrapper {
+        padding: 0;
     }
          
     
@@ -121,10 +125,6 @@ body {
     @media (min-width: $breakpoint53) {
         padding-bottom: 0;
     } 
-    
-    @media (min-width: $breakpoint60) {
-        margin-bottom: $padding;
-    }  
         
 }
 
@@ -342,7 +342,7 @@ input, textarea {
 #contact {
     
     position: relative;
-    z-index: 100;
+    z-index: 1;
     
     #contact-options {
         margin: 0;
@@ -507,7 +507,7 @@ input, textarea {
             //@include transform(translateY(100%) translateX(0) );  
             
             
-           margin-bottom: -200%;
+           margin-bottom: -410px;
             @include transition(margin-bottom .5s ease);
             @include transform(translateZ(0));  
             
@@ -520,6 +520,13 @@ input, textarea {
             //@include box-shadow(inset 0px 0px 5px 0px hsl(0, 1%, 40%));
         }
         
+        #contact-options {
+            display: table;
+            margin: 0 auto;
+            position: relative;
+            
+        }
+        
         
         #form-status{
             color: $textColor;
@@ -529,34 +536,18 @@ input, textarea {
                 content: '';                  
             }  
         }
-        
-        @media (min-width: $breakpoint60) {
-            //bottom:  $contactButtonsBottomSpace;
-            //width: 400px;
-            //right: 0;
-            //left:auto;
+    }
 
-        }  
-        
-         /*&:after{
-            content: '';
-            width: 100%;
-            height: 100%;
-            background: red;
-            display: block;
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            z-index: 1;
-        } */  
+    
+     #contact-form-wrapper {
+        height: $contactFormHeight;
+    }
+    
+    #contact-form {
+        @include border-radius(0 0 15px 15px);
     }
 
 }
-
-#contact {
-   z-index: 0; 
-}
-
 
 
 #contact-form {
@@ -577,7 +568,7 @@ input, textarea {
         margin-top: 0;
     } 
     
-    border: 2px solid $barColor; 
+    border: 5px solid $barColor; 
     
     h3 {
         color: $textColor;
@@ -788,6 +779,36 @@ article p a{
     }
             
 }
+
+
+@media (min-width: $breakpoint60) {
+    #masthead .container:not(#contact-wrapper) {
+        padding-bottom: 0;
+    }
+    
+    .js {
+        #contact #contact-options {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+        }  
+        
+        #contact #contact-wrapper {
+            margin-bottom: 0;
+        } 
+        
+         #contact.expanded  #contact-wrapper{         
+
+           margin-bottom: -360px;
+        }
+        
+        #contact-form {
+            width: 400px;
+            float: right; 
+            @include border-radius(0 0 0 15px);          
+        }  
+    }
+}    
 
 
 @media (min-width: $breakpoint75) {

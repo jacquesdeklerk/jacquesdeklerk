@@ -47,20 +47,21 @@
             
             <section id="contact">
                 <div id="contact-wrapper" class="container">  
-                
-                    <form id="contact-form" action="php/contact.php" method="POST">
-                        <h3>Send me a message</h3>
-                        <!-- <label for="form-name">Name:</label> -->
-                        <input id="form-name" name="form-name" type="text" placeholder="Your Name" tabindex="1" required  />
-                        <input id="form-email" name="form-email" type="email" placeholder="Your E-mail Address" tabindex="2" required  />
-                        <textarea id="form-text" name="form-text" tabindex="3" placeholder="Your message" cols="24" rows="7" required ></textarea>
-                        <input id="form-submit" name="form-submit" type="submit" tabindex="4" value="Send Message" class="button transition">
-                        
-                        <input id="form-folly" name="form-folly" type="text" placeholder="Your Name" class="hidden "/>
-                        
-                        <div id="form-status"></div>
-                        
-                    </form>
+                    <div id="contact-form-wrapper"> 
+                        <form id="contact-form" action="php/contact.php" method="POST">
+                            <h3>Send me a message</h3>
+                            <!-- <label for="form-name">Name:</label> -->
+                            <input id="form-name" name="form-name" type="text" placeholder="Your Name" tabindex="1" required  />
+                            <input id="form-email" name="form-email" type="email" placeholder="Your E-mail Address" tabindex="2" required  />
+                            <textarea id="form-text" name="form-text" tabindex="3" placeholder="Your message" cols="24" rows="7" required ></textarea>
+                            <input id="form-submit" name="form-submit" type="submit" tabindex="4" value="Send Message" class="button transition">
+                            
+                            <input id="form-folly" name="form-folly" type="text" placeholder="Your Name" class="hidden "/>
+                            
+                            <div id="form-status"></div>
+                            
+                        </form>
+                    </div>
                     
                     <ul id="contact-options">
                         <li class="contact-item"><a href="https://twitter.com/jacquesdeklerk" id="twitter" title="Twitter" class="icon transition">Twitter</a></li>
