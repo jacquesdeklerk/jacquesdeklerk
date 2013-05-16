@@ -297,7 +297,7 @@ body {
   margin-bottom: 0;
 }
 /* line 115, ../scss/style.scss */
-#masthead hgroup {
+#masthead #hgroup {
   vertical-align: middle;
   display: inline-block;
   position: relative;
@@ -305,7 +305,7 @@ body {
 }
 @media (max-width: 31rem) {
   /* line 115, ../scss/style.scss */
-  #masthead hgroup {
+  #masthead #hgroup {
     font-size: 60%;
   }
 }
