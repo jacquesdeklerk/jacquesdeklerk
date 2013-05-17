@@ -27,11 +27,11 @@ $contactFormHeight: 370px;
 $basepx: 16;
 
 
-$breakpoint30: 31rem;
-$breakpoint53: 53rem;
-$breakpoint60: 60rem;
-$breakpoint75: 75rem;
-$breakpoint95: 95rem;
+$breakpoint30: 31em;
+$breakpoint53: 53em;
+$breakpoint60: 60em;
+$breakpoint75: 75em;
+$breakpoint95: 95em;
 
 @import "icons";
 
@@ -734,14 +734,11 @@ article p a{
 
 /*old school media queries - to cut down on file size*/
 
-@media (min-width: $breakpoint30) {
-    
-}
 
 @media (min-width: $breakpoint53) {
     
     .container{
-        width: 48rem; 
+        width: 48em; 
     } 
     
     .project-image{
@@ -791,7 +788,7 @@ article p a{
     
     .article-body, .project-head , #about {
         float: left;
-        width: 20rem;
+        width: 20em;
     }
     
     #about {
@@ -801,7 +798,7 @@ article p a{
 }
 
 
-@media (min-width: $breakpoint60) {
+@media (min-width: $breakpoint60) /*contact section position switches here*/{
     #masthead .container:not(#contact-wrapper) {
         padding-bottom: 0;
     }
@@ -830,7 +827,7 @@ article p a{
 
 @media (min-width: $breakpoint75) {
     .container{
-        width: 70rem; 
+        width: 70em; 
     } 
     
     .project-image{
@@ -882,7 +879,7 @@ article p a{
     
     .article-body, .project-head, #about {
         float: left;
-        width: 30rem;
+        width: 30em;
     }
 }
 
@@ -890,7 +887,7 @@ article p a{
 
 @media (min-width: $breakpoint95) {
     .container{
-        width: 90rem; 
+        width: 90em; 
     } 
     
     .project-image{
@@ -942,6 +939,6 @@ article p a{
     
     .article-body, .project-head , #about {
         float: left;
-        width: 30rem;
+        width: 30em;
     }
 }

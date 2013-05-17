@@ -10,7 +10,7 @@
   position: relative;
   z-index: 1000;
 }
-@media (max-width: 31rem) {
+@media (max-width: 31em) {
   /* line 6, ../scss/_icons.scss */
   #logo {
     width: 80px;
@@ -276,7 +276,7 @@ body {
   z-index: 3;
   padding: 1.25em 1.25em 0.625em 1.25em;
 }
-@media (min-width: 53rem) {
+@media (min-width: 53em) {
   /* line 85, ../scss/style.scss */
   #masthead .container:not(#contact-wrapper) {
     padding-bottom: 1.25em;
@@ -303,13 +303,13 @@ body {
   position: relative;
   z-index: 1000;
 }
-@media (max-width: 31rem) {
+@media (max-width: 31em) {
   /* line 115, ../scss/style.scss */
   #masthead #hgroup {
     font-size: 60%;
   }
 }
-@media (min-width: 53rem) {
+@media (min-width: 53em) {
   /* line 78, ../scss/style.scss */
   #masthead {
     padding-bottom: 0;
@@ -517,7 +517,7 @@ input, textarea {
   top: -1.3em;
   left: 0;
 }
-@media (min-width: 53rem) {
+@media (min-width: 53em) {
   /* line 307, ../scss/style.scss */
   .annum-heading {
     top: -0.7em;
@@ -563,7 +563,7 @@ input, textarea {
   -o-border-radius: 0 0 8px 8px;
   border-radius: 0 0 8px 8px;
 }
-@media (min-width: 60rem) {
+@media (min-width: 60em) {
   /* line 348, ../scss/style.scss */
   #contact #contact-options {
     text-align: right;
@@ -636,7 +636,7 @@ input, textarea {
   overflow: hidden;
   cursor: pointer;
 }
-@media (min-width: 53rem) {
+@media (min-width: 53em) {
   /* line 424, ../scss/style.scss */
   .js .project {
     height: 160px;
@@ -922,95 +922,95 @@ article p a:hover {
     }
 }*/
 /*old school media queries - to cut down on file size*/
-@media (min-width: 53rem) {
-  /* line 743, ../scss/style.scss */
+@media (min-width: 53em) {
+  /* line 740, ../scss/style.scss */
   .container {
-    width: 48rem;
+    width: 48em;
   }
 
-  /* line 747, ../scss/style.scss */
+  /* line 744, ../scss/style.scss */
   .project-image {
     width: 356px;
     float: right;
   }
 
-  /* line 752, ../scss/style.scss */
+  /* line 749, ../scss/style.scss */
   #ladl .project-image {
     height: 205px;
   }
 
-  /* line 756, ../scss/style.scss */
+  /* line 753, ../scss/style.scss */
   #In-search-of-health .project-image {
     height: 266px;
   }
 
-  /* line 760, ../scss/style.scss */
+  /* line 757, ../scss/style.scss */
   #supreme-styrene .project-image {
     height: 276px;
   }
 
-  /* line 764, ../scss/style.scss */
+  /* line 761, ../scss/style.scss */
   #mikado .project-image {
     height: 231px;
   }
 
-  /* line 768, ../scss/style.scss */
+  /* line 765, ../scss/style.scss */
   #santini-mobile .project-image {
     height: 219px;
   }
 
-  /* line 772, ../scss/style.scss */
+  /* line 769, ../scss/style.scss */
   #fairmade .project-image {
     height: 266px;
   }
 
-  /* line 776, ../scss/style.scss */
+  /* line 773, ../scss/style.scss */
   #cjvhPrinsloo .project-image {
     height: 246px;
   }
 
-  /* line 780, ../scss/style.scss */
+  /* line 777, ../scss/style.scss */
   #santini .project-image {
     height: 184px;
   }
 
-  /* line 784, ../scss/style.scss */
+  /* line 781, ../scss/style.scss */
   #santini-admin .project-image {
     height: 222px;
   }
 
-  /* line 788, ../scss/style.scss */
+  /* line 785, ../scss/style.scss */
   #shotopop .project-image {
     height: 194px;
   }
 
-  /* line 792, ../scss/style.scss */
+  /* line 789, ../scss/style.scss */
   .article-body, .project-head, #about {
     float: left;
-    width: 20rem;
+    width: 20em;
   }
 
-  /* line 797, ../scss/style.scss */
+  /* line 794, ../scss/style.scss */
   #about {
     margin-right: 1.5em;
   }
 }
-@media (min-width: 60rem) {
-  /* line 805, ../scss/style.scss */
+@media (min-width: 60em) {
+  /* line 802, ../scss/style.scss */
   #masthead .container:not(#contact-wrapper) {
     padding-bottom: 0;
   }
 
-  /* line 810, ../scss/style.scss */
+  /* line 807, ../scss/style.scss */
   .js #contact #contact-options {
     display: inline-block;
   }
-  /* line 816, ../scss/style.scss */
+  /* line 813, ../scss/style.scss */
   .js #contact #contact-wrapper {
     margin-bottom: 0;
     text-align: right;
   }
-  /* line 821, ../scss/style.scss */
+  /* line 818, ../scss/style.scss */
   .js #contact-form {
     display: inline-block;
     width: 400px;
@@ -1021,139 +1021,139 @@ article p a:hover {
     border-radius: 0 0 0 15px;
   }
 }
-@media (min-width: 75rem) {
-  /* line 832, ../scss/style.scss */
+@media (min-width: 75em) {
+  /* line 829, ../scss/style.scss */
   .container {
-    width: 70rem;
+    width: 70em;
   }
 
-  /* line 836, ../scss/style.scss */
+  /* line 833, ../scss/style.scss */
   .project-image {
     width: 570px;
     float: right;
   }
 
-  /* line 842, ../scss/style.scss */
+  /* line 839, ../scss/style.scss */
   #ladl .project-image {
     height: 328px;
   }
 
-  /* line 846, ../scss/style.scss */
+  /* line 843, ../scss/style.scss */
   #In-search-of-health .project-image {
     height: 426px;
   }
 
-  /* line 850, ../scss/style.scss */
+  /* line 847, ../scss/style.scss */
   #supreme-styrene .project-image {
     height: 441px;
   }
 
-  /* line 854, ../scss/style.scss */
+  /* line 851, ../scss/style.scss */
   #mikado .project-image {
     height: 369px;
   }
 
-  /* line 858, ../scss/style.scss */
+  /* line 855, ../scss/style.scss */
   #santini-mobile .project-image {
     height: 351px;
   }
 
-  /* line 862, ../scss/style.scss */
+  /* line 859, ../scss/style.scss */
   #fairmade .project-image {
     height: 425px;
   }
 
-  /* line 866, ../scss/style.scss */
+  /* line 863, ../scss/style.scss */
   #cjvhPrinsloo .project-image {
     height: 394px;
   }
 
-  /* line 870, ../scss/style.scss */
+  /* line 867, ../scss/style.scss */
   #santini .project-image {
     height: 294px;
   }
 
-  /* line 874, ../scss/style.scss */
+  /* line 871, ../scss/style.scss */
   #santini-admin .project-image {
     height: 355px;
   }
 
-  /* line 878, ../scss/style.scss */
+  /* line 875, ../scss/style.scss */
   #shotopop .project-image {
     height: 311px;
   }
 
-  /* line 883, ../scss/style.scss */
+  /* line 880, ../scss/style.scss */
   .article-body, .project-head, #about {
     float: left;
-    width: 30rem;
+    width: 30em;
   }
 }
-@media (min-width: 95rem) {
-  /* line 892, ../scss/style.scss */
+@media (min-width: 95em) {
+  /* line 889, ../scss/style.scss */
   .container {
-    width: 90rem;
+    width: 90em;
   }
 
-  /* line 896, ../scss/style.scss */
+  /* line 893, ../scss/style.scss */
   .project-image {
     width: 900px;
     float: right;
   }
 
-  /* line 901, ../scss/style.scss */
+  /* line 898, ../scss/style.scss */
   #ladl .project-image {
     height: 516px;
   }
 
-  /* line 905, ../scss/style.scss */
+  /* line 902, ../scss/style.scss */
   #In-search-of-health .project-image {
     height: 672px;
   }
 
-  /* line 909, ../scss/style.scss */
+  /* line 906, ../scss/style.scss */
   #supreme-styrene .project-image {
     height: 696px;
   }
 
-  /* line 913, ../scss/style.scss */
+  /* line 910, ../scss/style.scss */
   #mikado .project-image {
     height: 581px;
   }
 
-  /* line 917, ../scss/style.scss */
+  /* line 914, ../scss/style.scss */
   #santini-mobile .project-image {
     height: 554px;
   }
 
-  /* line 921, ../scss/style.scss */
+  /* line 918, ../scss/style.scss */
   #fairmade .project-image {
     height: 670px;
   }
 
-  /* line 925, ../scss/style.scss */
+  /* line 922, ../scss/style.scss */
   #cjvhPrinsloo .project-image {
     height: 621px;
   }
 
-  /* line 929, ../scss/style.scss */
+  /* line 926, ../scss/style.scss */
   #santini .project-image {
     height: 462px;
   }
 
-  /* line 933, ../scss/style.scss */
+  /* line 930, ../scss/style.scss */
   #santini-admin .project-image {
     height: 560px;
   }
 
-  /* line 937, ../scss/style.scss */
+  /* line 934, ../scss/style.scss */
   #shotopop .project-image {
     height: 489px;
   }
 
-  /* line 943, ../scss/style.scss */
+  /* line 940, ../scss/style.scss */
   .article-body, .project-head, #about {
     float: left;
-    width: 30rem;
+    width: 30em;
   }
 }
