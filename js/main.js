@@ -1,7 +1,8 @@
 $(document).ready(function(){
    "use strict";
     var $contact = $('#contact'),
-       enableTimer = 0; // Used to track the enabling of hover effects
+       enableTimer = 0, // Used to track the enabling of hover effects
+       contactHash = 'message';
     
     function bindEvent(el, eventName, eventHandler) {
         if (el.addEventListener){
@@ -16,7 +17,7 @@ $(document).ready(function(){
     function toggleContactHash(element){      
          
         if(element.hasClass('expanded')){
-             window.location.hash = 'contact';
+             window.location.hash = contactHash;
         }
         else{            
             if($('html').hasClass('history')){
@@ -73,7 +74,7 @@ $(document).ready(function(){
     //close contact if clicked outside
     $(document).mouseup(function (e){
 
-        if(e.target.hash === '#contact'){
+        if(e.target.hash === ('#' + contactHash)){
            return false;
         }else{
             if($contact.has(e.target).length === 0){ 
