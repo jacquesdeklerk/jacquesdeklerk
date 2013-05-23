@@ -59,6 +59,11 @@ $breakpoint95: 95em;
     padding: $padding 0 $padding 0;
 }
 
+
+:unresolved {
+    opacity: 0;
+}
+
 /*border box for all elements*/
 *{
     @include box-sizing('border-box');
@@ -140,13 +145,14 @@ body {
 }
 
 
-.project-image {    
-    margin: 0 auto;       
+.project-image {              
+    width: 100%; 
 }
 
 .project-image img {
     width: 280px;
     display: block;
+    margin: 0 auto;
 }
 
 #nav li {
@@ -505,14 +511,12 @@ input, textarea {
         
     #contact {
 
-        background: $barColor;
-        
-        //border-bottom:$contactButtonsBottomSpace solid $barColor;
+        background: $barColor;        
         
         position: absolute;
         width: 100%;
         
-        bottom: -$contactButtonsBottomSpace;
+        bottom: -(($contactButtonsSpace - 1 ) + px);
         left: 0;
         
         textarea {
@@ -743,8 +747,8 @@ article p a{
     } 
     
     .project-image{
-            
-            float: right;
+        width: auto;    
+        float: right;
     }
         
     .project-image img {

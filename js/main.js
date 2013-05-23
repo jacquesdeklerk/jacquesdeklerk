@@ -2,7 +2,7 @@ $(document).ready(function(){
    "use strict";
     var $contact = $('#contact'),
        enableTimer = 0; // Used to track the enabling of hover effects
-
+    
     function bindEvent(el, eventName, eventHandler) {
         if (el.addEventListener){
             el.addEventListener(eventName, eventHandler, false); 
@@ -49,6 +49,12 @@ $(document).ready(function(){
         
         $('body').addClass('hover');
     }
+    
+    /*
+     * Attach Fastclick to body
+     */
+    FastClick.attach(document.body);
+
        
    /*
      * Listen for a scroll and use that to remove
@@ -64,22 +70,12 @@ $(document).ready(function(){
     });
         
     
-   /*window.addEventListener('scroll', function() {
-      clearTimeout(enableTimer);
-      removeHoverClass();
-    
-      // enable after 0.5 seconds
-      enableTimer = setTimeout(addHoverClass, 500);
-    }, false);*/
-    
-    
     //close contact if clicked outside
     $(document).mouseup(function (e){
 
         if(e.target.hash === '#contact'){
            return false;
-        }
-        else{
+        }else{
             if($contact.has(e.target).length === 0){ 
                 $contact.removeClass('expanded');
                 toggleContactHash($contact);
@@ -138,7 +134,9 @@ $(document).ready(function(){
     });
     
     
-    //toggle contact
+    /*
+     * footer - scroll to and open contact
+     */
     $('#footer-nav .contact').click(function(e) {
         $("html, body").animate({ scrollTop: 0 }, 800, function(){
             // SET A TIMEOUT...
