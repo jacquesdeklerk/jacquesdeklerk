@@ -191,7 +191,10 @@
             }
 
             if(currentTime < duration) {
-                setTimeout(animateScroll, increment);
+                //setTimeout(animateScroll, increment);
+                
+                requestAnimationFrame(animateScroll);
+                
                 
             }else{
                 //end of scroll
@@ -280,6 +283,8 @@
                 removeClass($contact,'expanded');
                 toggleContactHash($contact);
             }
+        }
+        
     });
 
     //on loading page,expand contact section if hash is set
@@ -475,6 +480,59 @@
     
     
     bindEvent(document.getElementById('contact-form'), 'submit', submitForm);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    (function() {
+        var lastTime = 0,
+            vendors = ['ms', 'moz', 'webkit', 'o'],
+            currTime,
+            timeToCall,
+            id;
+            
+        for(i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+            window.requestAnimationFrame = window[vendors[i]+'RequestAnimationFrame'];
+            window.cancelRequestAnimationFrame = window[vendors[i]+
+              'CancelRequestAnimationFrame'];
+        }
+    
+        if (!window.requestAnimationFrame){
+            window.requestAnimationFrame = function(callback, element) {
+                currTime = new Date().getTime();
+                timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
+                  timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
+            };
+        }
+    
+        if (!window.cancelAnimationFrame){
+            window.cancelAnimationFrame = function(id) {
+                clearTimeout(id);
+            };
+        }
+    }());
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     
 }(window,FastClick));
