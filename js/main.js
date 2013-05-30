@@ -1,33 +1,98 @@
-$(document).ready(function(){
-   "use strict";
-    var $contact = $('#contact'),
-       enableTimer = 0, // Used to track the enabling of hover effects
-       contactHash = 'message';
+/*global console: false */
+
+
+(function(window,FastClick){
+    "use strict";
     
-    function bindEvent(el, eventName, eventHandler) {
-        if (el.addEventListener){
-            el.addEventListener(eventName, eventHandler, false); 
-        } 
-        else if (el.attachEvent){
-            el.attachEvent('on'+eventName, eventHandler);
+    var
+        document = window.document,  // Use the correct document accordingly with window argument (sandbox)      
+        location = window.location,
+        $contact = document.getElementById('contact'),
+        enableTimer = 0, // Used to track the enabling of hover effects
+        contactHash = 'message',
+        projects,
+        footerNav,
+        scrollSpreed = 750,
+        formError = false,
+        i,
+        XMLHttpFactories = [
+            function () {return new XMLHttpRequest();},
+            function () {return new ActiveXObject("Msxml2.XMLHTTP");},
+            function () {return new ActiveXObject("Msxml3.XMLHTTP");},
+            function () {return new ActiveXObject("Microsoft.XMLHTTP");}
+        ];
+    
+
+    function getElementsByClassName (node, classname) {
+        var a = [],
+            re = new RegExp('(^| )'+classname+'( |$)'),
+            els = node.getElementsByTagName("*"),
+            i,
+            j;
+        for(i=0,j=els.length; i<j; i++){
+            if(re.test(els[i].className)){
+                a.push(els[i]);
+            }
+        }
+        return a;
+    }
+    
+
+    function hasClass(element,className) {
+        return (' ' + element.className + ' ').indexOf(' ' + className + ' ') > -1;
+    }
+    
+    function removeClass(elem, className) {
+        var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
+        if (hasClass(elem, className)) {
+            while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+                newClass = newClass.replace(' ' + className + ' ', ' ');
+            }
+            elem.className = newClass.replace(/^\s+|\s+$/g, '');
+        }
+    } 
+  
+
+    function addClass(element, className) {
+        if (!hasClass(element, className)) {
+
+            element.className += ' ' + className;
         }
     }
-        
+    
+    
+     function toggleClass (element, className) {
+        var newClass = ' ' + element.className.replace( /[\t\r\n]/g, ' ' ) + ' ';
+        if (hasClass(element, className)) {
+            while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
+                newClass = newClass.replace( ' ' + className + ' ' , ' ' );
+            }
+            element.className = newClass.replace(/^\s+|\s+$/g, '');
+        } else {
+            element.className += ' ' + className;
+        }
+    }
+
+    
+    
+    function bindEvent (element, eventName, eventHandler) {
+        if (element.addEventListener){
+            element.addEventListener(eventName, eventHandler, false); 
+        } 
+        else if (element.attachEvent){
+            element.attachEvent('on'+eventName, eventHandler);
+        }
+    }
     
     function toggleContactHash(element){      
-         
-        if(element.hasClass('expanded')){
+        if(hasClass(element,'expanded')){
              window.location.hash = contactHash;
-        }
-        else{            
-            if($('html').hasClass('history')){
+        }else{            
+            if(hasClass(document.getElementsByTagName('html')[0], 'history')){
                history.replaceState('', document.title, window.location.pathname); 
-            }
-            else{
+            }else{
                 window.location.hash = '';
             }
-            
-            
         }        
      }  
        
@@ -36,9 +101,8 @@ $(document).ready(function(){
      * are reliant on this class being present
      */
     function removeHoverClass() {
-        //document.body.classList.remove('hover');
-        $('body').removeClass('hover');
-        
+        //document.body.classList.remove('hover');       
+        removeClass(document.getElementById('top'),'hover');        
     }
     
     /**
@@ -46,15 +110,140 @@ $(document).ready(function(){
      * are reliant on this class being present
      */
     function addHoverClass() {
-        //document.body.classList.add('hover');
-        
-        $('body').addClass('hover');
+        //document.body.classList.add('hover');        
+        addClass(document.body,'hover'); 
     }
+    
+    /*
+     * Project click listener callback
+     */
+    function projectClick(e){        
+        
+        e = e||window.event;
+        var target = e.target || e.srcElement,
+            properThis,
+            current,
+            element = this;
+        
+        if(element.nodeType === 1){
+            properThis = true;   
+        }else{
+            properThis = false;
+        }     
+        
+        if(!properThis){
+            
+            current = e.srcElement;
+            
+            if(current.tagName.toLowerCase() !== 'article'){
+               
+                while(current.tagName.toLowerCase() !== 'article'){                                
+                    current = current.parentNode;
+                }
+                
+                if(current.tagName.toLowerCase() === 'article'){
+                    element = current;
+                }
+            }
+        }
+
+
+        if(hasClass(element,'expanded')){
+            
+            if( !hasClass(target, 'bottom-expander') && !hasClass(target.parentNode, 'bottom-expander')) {
+                
+                return;
+            }
+            
+            removeClass(element,'expanded');
+            
+        }else{
+            addClass(element,'expanded');
+        } 
+
+        //close all other expanded projects
+       //$('.project').each(function(i) {
+            //$(this).not($current).removeClass('expanded');       
+        //});
+        
+        //window.scrollTo(0, $current.offset().top);
+    }
+    
+    
+    /*
+     * Scroll to top function
+     */
+    function scrollTo(element, to, duration, callback) {
+        var start = document.documentElement.scrollTop || element.scrollTop,
+            change = to - start,
+            currentTime = 0,
+            increment = 20,
+            animateScroll;
+    
+        animateScroll = function(){        
+            currentTime += increment;
+            var val = Math.easeInOutQuad(currentTime, start, change, duration);     
+            
+            if(element.scrollTop){
+                element.scrollTop = val;
+            }else{
+                document.documentElement.scrollTop = val;
+            }
+
+            if(currentTime < duration) {
+                setTimeout(animateScroll, increment);
+                
+            }else{
+                //end of scroll
+                if(callback){
+                   callback(); 
+                }
+                              
+            }
+        };
+        animateScroll();
+    }
+    
+    //t = current time
+    //b = start value
+    //c = change in value
+    //d = duration
+    Math.easeInOutQuad = function (t, b, c, d) {
+        
+        t /= d/2;
+        if (t < 1){
+            
+            //console.log(c/2*t*t + b);
+            
+            return c/2*t*t + b;
+        }
+        t--;
+        
+        //console.log(-c/2 * (t*(t-2) - 1) + b);
+        return -c/2 * (t*(t-2) - 1) + b;
+    };
+    
+    
+    function handleTokenRequest(data) {        
+        //add some form security
+        var inputNode = document.createElement('input');
+      
+        inputNode.type = "hidden";
+        inputNode.id = "first_foil";
+        inputNode.name = "first_foil";
+        inputNode.value = data.responseText;
+
+        document.getElementById('contact-form').appendChild(inputNode);            
+    }
+    
+    
     
     /*
      * Attach Fastclick to body
      */
-    FastClick.attach(document.body);
+    bindEvent(window,'load', function() {
+        FastClick.attach(document.body);
+    });
 
        
    /*
@@ -62,7 +251,7 @@ $(document).ready(function(){
      * the possibility of hover effects
      */
     
-    bindEvent(window, 'scroll', function () {
+    bindEvent(window,'scroll', function () {
       clearTimeout(enableTimer);
       removeHoverClass();
     
@@ -72,158 +261,220 @@ $(document).ready(function(){
         
     
     //close contact if clicked outside
-    $(document).mouseup(function (e){
+    bindEvent(document,'click', function(e) {
+        var hasParent = false,
+            node,
+            target = e.target || e.srcElement;
+        
+        if(location.hash === ('#' + contactHash)){
 
-        if(e.target.hash === ('#' + contactHash)){
-           return false;
-        }else{
-            if($contact.has(e.target).length === 0){ 
-                $contact.removeClass('expanded');
+        
+            for(node = target; node !== document.body; node = node.parentNode){
+                if(node.id === 'contact-form' || node.id === 'contact-options'){
+                    hasParent = true;
+                    break;
+                }
+            }
+            
+            if(!hasParent){
+                removeClass($contact,'expanded');
                 toggleContactHash($contact);
             }
-        }
     });
-    
-    //expand contact section if hash is set
-    if(window.location.hash === "#contact"){
-         $contact.addClass('expanded');
+
+    //on loading page,expand contact section if hash is set
+    if(window.location.hash === '#' + contactHash){
+         addClass($contact,'expanded');
     }
     
     
-    //Expand project
+    //Expand project   
     
-    $('.project').click(function(e) {
-        
-        var $current = $(this);
-        
-        if($current.hasClass('expanded')){
-            if( !$(e.target).hasClass('bottom-expander') && !$(e.target).parent().hasClass('bottom-expander')) {
-                return;
-            }
-        }
+    
+    projects = typeof document.getElementsByClassName !== 'function' ? getElementsByClassName(document.body,'project') : document.getElementsByClassName('project');
+    
+    
+    
+    for(i = 0; i < projects.length; i++){
 
-        $current.toggleClass('expanded');    
-        
-        //close all other expanded projects
-       //$('.project').each(function(i) {
-            //$(this).not($current).removeClass('expanded');       
-        //});
-        
-        //window.scrollTo(0, $current.offset().top);        
-         
-    });
+        bindEvent(projects[i],'mouseup', projectClick);
+    }
+     
     
-    
-    $('.project').hover(
-      function() {
-          
-        if($('body').hasClass('hover')){
-            $(this).toggleClass('focused');     
-        }  
 
-      }
-    );
-    
 
     //toggle contact
-    $('#contact-form-expander').click(function(e) {
-        e.preventDefault();
-        $contact.toggleClass('expanded');       
+    bindEvent(document.getElementById('contact-form-expander'),'click', function(e) {
+        //e.preventDefault();
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        
+        toggleClass($contact, 'expanded');       
         
         toggleContactHash($contact);
-        
     });
     
     
     /*
      * footer - scroll to and open contact
      */
-    $('#footer-nav .contact').click(function(e) {
-        $("html, body").animate({ scrollTop: 0 }, 800, function(){
+    footerNav = document.getElementById('footer-nav');
+    footerNav = typeof document.getElementsByClassName !== 'function' ? getElementsByClassName(footerNav,'contact')[0] : footerNav.getElementsByClassName('contact')[0];
+    
+    bindEvent(footerNav,'click', function(e) {
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+        toggleContactHash($contact);
+        
+        scrollTo(document.body, 0, scrollSpreed,function(){
             // SET A TIMEOUT...
             window.setTimeout(function(){
-                if(!$contact.hasClass('expanded')){
-                    $contact.addClass('expanded');
+                if(!hasClass($contact,'expanded')){
+                    addClass($contact,'expanded');
                 }
                 toggleContactHash($contact);
             }, 300);    
         });
         
-        return false;
     });
     
-    
-    
+
     /*
      * Scroll to top
-     */
-    $('#scroll-top').click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 800);
-        return false;
+     */   
+    bindEvent(document.getElementById('scroll-top'),'click', function(e) {
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        scrollTo(document.body, 0, scrollSpreed);
     });
-
-    
     
     
     /*
      * Contact form
      */
+    function formalizeObject(form){
+        //we'll use this to create our send-data
+        if (typeof form !== 'object'){
+            throw new Error('no object provided');
+        }
+        var ret = '';
+        form = form.elements || form;//double check for elements node-list
+        for (i=0;i<form.length;i++){
+            if (form[i].type === 'checkbox' || form[i].type === 'radio'){
+                if (form[i].checked)
+                {
+                    ret += (ret.length ? '&' : '') + form[i].name + '=' + form[i].value;
+                }
+                continue;
+            }
+            ret += (ret.length ? '&' : '') + form[i].name +'='+ form[i].value; 
+        }
+        return encodeURI(ret);
+    }
     
-    //add some form security
-    $.get("php/token.php", function(txt){
-      $("#contact-form").append('<input type="hidden" id = "first_foil" name="first_foil" value="'+txt+'" />');
-    });     
+    function createXMLHTTPObject() {
+        var xmlhttp = false;
+        for (i=0; i < XMLHttpFactories.length; i++) {
+            try {
+                xmlhttp = XMLHttpFactories[i]();
+            }
+            catch (e) {
+                continue;
+            }
+            break;
+        }
+        return xmlhttp;
+    }
+    
+    function sendRequest(url,callback,postData) {
+        var req = createXMLHTTPObject(),
+            method;
+            
+        if (!req) {
+            //if no request object could be created, exit
+            return;
+        }
 
-    $("#contact-form").submit(function(e){                                                          
+        
+        method = (postData) ? "POST" : "GET";
+        
+        req.open(method,url,true); // true (3rd param) = async
+        
+        //req.setRequestHeader('User-Agent','XMLHTTP/1.0');
+        
+        if (postData){
+            req.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        }
             
-            e.preventDefault();
+        req.onreadystatechange = function () {
             
-            //console.log('submitting form');
+            //console.log('onreadystatechange = ' +  req.readyState);
             
-            var str = $(this).serialize(),                    
-                bPhpError = true,
-                date = new Date(),
-                time = date.getTime(),
-                url = "php/contact.php",               
-                testurl = "php/tes.html";
+            if (req.readyState !== 4){ 
+                return;
+            }
+            
+            if (req.status !== 200 && req.status !== 304) {
+
+                console.log('HTTP error ' + req.status);
                 
-            //console.log(str);    
-                       
-            $.ajax({
-               type: "POST",
-               url: url + "?time=" + time,
-               data: str,
-               cache: false,
-               success: function(data,status, obj)
-               {
-                   //console.log('ajax success');
-                   //console.log(data); // show response from the php script.                  
-                   
-                   if(data !== 'OK'){
-                       $('#form-status').html(data);
-                   }
-                   else{
-                        $('#form-status').text('Your message has been sent...');
-                   }
-                   
-                   
-               },
-               complete: function(data,status){
-                   //console.log('this: ' , $(this));
-                   $('#contact-form')[0].reset();
-               },
-               error: function(obj,status,error){
-                   //console.log('ERROR!');                   
-                   $('#form-status').text('An error occurred, please try again.');
-               }
-               
+                formErrorCallback();
+                
+                return;
+            }
+            callback(req);
+        };
+        
+        if (req.readyState === 4) {
+            return;
+        }
+        
+        //console.log(postData);
+        
+        req.send(postData);
+    }
     
-            });
+    
+    
+    
+    
+    function formErrorCallback(){
+        document.getElementById('form-status').innerHTML = 'An error occurred, please try again.';
+    }
+    
+    
+    
+    function handleFormSubmitRequest(data) {           
+        
+        if(data.responseText !== 'OK'){
+            //php error
+            console.log('PHP error');
+            document.getElementById('form-status').innerHTML = data.responseText;
+        }else{
+            //success            
+            document.getElementById('form-status').innerHTML = 'Your message has been sent...';
             
-            return false;
-     });
-     
-     
-});
+            document.getElementById("contact-form").reset();
+        }        
+    }
+    
+    function submitForm (e) {
+        
+        var date = new Date(),
+            time = date.getTime();
+        
+        e = e||window.event;  
+        
+        e.preventDefault ? e.preventDefault() : e.returnValue = false;   
+        
+        sendRequest('php/contact.php' + time , handleFormSubmitRequest, formalizeObject(document.getElementById('contact-form').elements), formErrorCallback);
+    }
+    
+    
+    
+    
+    sendRequest('php/token.php',handleTokenRequest);
+    
+    
+    bindEvent(document.getElementById('contact-form'), 'submit', submitForm);
+
+    
+}(window,FastClick));

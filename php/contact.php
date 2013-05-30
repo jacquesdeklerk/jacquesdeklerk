@@ -23,6 +23,12 @@
     
     $post = (!empty($_POST)) ? true : false;
     
+    $error = '';
+        
+    $name_error = '';
+    $email_error = '';
+    $message_error = '';
+    
 
     if($post)
     {
@@ -31,15 +37,7 @@
         $message = stripslashes($_POST['form-text']);
 
         
-        $form_folly = $_POST['form-folly'];
-        
-        //echo $disclaimerCheck;
-        
-        $error = '';
-        
-        $name_error = '';
-        $email_error = '';
-        $message_error = '';
+        $form_folly = $_POST['form-folly'];        
 
         
         $name_label = 'Name';
@@ -74,8 +72,7 @@
         }
    
         if(!$error && !$name_error && !$email_error && !$message_error)
-        {
-        	
+        {            	
         	$msg = "$message\n\n".
         	"From: $name\n".
         	"Email Address: $email\n";
@@ -99,6 +96,7 @@
     
     }else
     {
-    	echo $name_error.' '.$email_error.' '.$message_error.' '.$error;
+    	//echo $name_error.' '.$email_error.' '.$message_error.' '.$error;
+    	echo "ERROR - no post object received";
     }
 ?>
