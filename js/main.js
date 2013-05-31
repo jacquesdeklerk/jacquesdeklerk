@@ -523,8 +523,6 @@ JDK.Page = (function(window,FastClick, util, ajax){
      * footer - scroll to and open contact
      */
     footerNav = document.getElementById('footer-nav');
-    footerNav = typeof document.getElementsByClassName !== 'function' ? util.getElementsByClassName(footerNav,'contact')[0] : footerNav.getElementsByClassName('contact')[0];
-    
     footerNav = util.getElementsByClassName(footerNav,'contact')[0];
     
     util.bindEvent(footerNav,'click', function(e) {
@@ -540,8 +538,7 @@ JDK.Page = (function(window,FastClick, util, ajax){
                 }
                 toggleContactHash($contact);
             }, 300);    
-        });
-        
+        });        
     });
     
 
