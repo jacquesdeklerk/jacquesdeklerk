@@ -9,3 +9,5 @@ publish/
 config.rb
 .settings/
 .sass-cache/
+jdk.sublime-project
+jdk.sublime-workspace
