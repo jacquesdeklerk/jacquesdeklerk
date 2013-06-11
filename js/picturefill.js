@@ -5,7 +5,7 @@
 	// Enable strict mode
 	"use strict";
 
-	w.picturefill = function() {
+	w.picturefill = function() {	    
 		var ps = w.document.getElementsByTagName( "div" );
 		
 		// Loop the pictures
@@ -26,7 +26,7 @@
 
 			// Find any existing img element in the picture element
 			var picImg = ps[ i ].getElementsByTagName( "img" )[ 0 ];
-
+            
 			if( matches.length ){			
 				if( !picImg ){
 					picImg = w.document.createElement( "img" );

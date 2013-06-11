@@ -347,17 +347,11 @@ JDK.Page = (function(window,FastClick, util, ajax){
         
         e = e||window.event;
         var target = e.target || e.srcElement,
-            properThis,
             current,
             element = this;
         
-        if(element.nodeType === 1){
-            properThis = true;   
-        }else{
-            properThis = false; //lte8
-        }     
-        
-        if(!properThis){
+        //lte8 - "this"  refers to 'window' object, should refer to 'article .project'
+        if(element.nodeType !== 1){
             
             current = e.srcElement;
             
@@ -502,7 +496,7 @@ JDK.Page = (function(window,FastClick, util, ajax){
     
     for(i = 0; i < projects.length; i+=1){
 
-        util.bindEvent(projects[i],'mouseup', projectClick);
+        util.bindEvent(projects[i],'click', projectClick);
     }
      
     
