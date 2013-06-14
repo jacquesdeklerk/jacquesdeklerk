@@ -69,6 +69,11 @@ $breakpoint95: 95em;
     @include box-sizing('border-box');
 }
 
+/*no border box for project images - will this help rendering performance by keeping actual img ,without border, to specified dimensions ?*/
+.project-image img{
+    @include box-sizing('content-box');
+}
+
 body {
   background-color: $backgroundColor;
   color: $textColor;

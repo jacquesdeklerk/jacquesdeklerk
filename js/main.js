@@ -1,16 +1,12 @@
 /*global console: false */
 /*global ActiveXObject: false */
 
-
 var JDK = JDK || {};
-
-
 
 JDK.Polyfills =(function() {
     "use strict";
     
-    //requestAnimationFrame polyfill
-    
+    //requestAnimationFrame polyfill    
     (function fillRequestAnimFrame(){
         
        var lastTime = 0,
@@ -56,14 +52,17 @@ JDK.Utils = (function(Math){
     
     util.getElementsByClassName = function (node, classname) {
         
-        var a;
+        var a,
+            re = new RegExp('(^| )'+classname+'( |$)'),
+            els = node.getElementsByTagName("*"),
+            j;
         
         if(typeof node.getElementsByClassName === 'function'){
             a = node.getElementsByClassName(classname);
         }else{
-            var re = new RegExp('(^| )'+classname+'( |$)'),
-                els = node.getElementsByTagName("*"),
-                j;
+            re = new RegExp('(^| )'+classname+'( |$)');
+            els = node.getElementsByTagName("*");
+ 
                 
             a = [];    
             
@@ -303,7 +302,7 @@ JDK.Page = (function(window,FastClick, util, ajax){
         $contact = document.getElementById('contact'),
         enableTimer = 0, // Used to track the enabling of hover effects
         contactHash = 'message',
-        projects,
+        projects = util.getElementsByClassName(document.body,'project'),
         footerNav,
         scrollSpreed = 750,
         formError = false,
@@ -347,14 +346,12 @@ JDK.Page = (function(window,FastClick, util, ajax){
         
         e = e||window.event;
         var target = e.target || e.srcElement,
-            current,
+            current = target,
             element = this;
         
         //lte8 - "this"  refers to 'window' object, should refer to 'article .project'
         if(element.nodeType !== 1){
-            
-            current = e.srcElement;
-            
+
             if(current.tagName.toLowerCase() !== 'article'){
                
                 while(current.tagName.toLowerCase() !== 'article'){                                
@@ -382,11 +379,12 @@ JDK.Page = (function(window,FastClick, util, ajax){
         } 
 
         //close all other expanded projects
-       //$('.project').each(function(i) {
-            //$(this).not($current).removeClass('expanded');       
-        //});
-        
-        //window.scrollTo(0, $current.offset().top);
+        /*for(i = 0; i < projects.length; i+=1){
+            
+            if(projects[i] !== element){
+                util.removeClass(projects[i], 'expanded');
+            }
+        }*/
     }
 
     
@@ -491,9 +489,7 @@ JDK.Page = (function(window,FastClick, util, ajax){
     }
     
     
-    //Expand project      
-    projects = util.getElementsByClassName(document.body,'project');
-    
+    //loop over all projects and bind click to expand projects in initial state          
     for(i = 0; i < projects.length; i+=1){
 
         util.bindEvent(projects[i],'click', projectClick);
