@@ -3,7 +3,9 @@
 
 var JDK = JDK || {};
 
-JDK.Polyfills =(function() {
+
+
+JDK.Polyfills = (function() {
     "use strict";
     
     //requestAnimationFrame polyfill    
@@ -44,7 +46,7 @@ JDK.Polyfills =(function() {
 }());
 
 
-JDK.Utils = (function(Math){
+JDK.Utils = (function(){
     "use strict";
     
     var util = {},
@@ -135,7 +137,7 @@ JDK.Utils = (function(Math){
     
         animateScroll = function(){        
             currentTime += increment;
-            var val = Math.easeInOutQuad(currentTime, start, change, duration);     
+            var val = util.easeInOutQuad(currentTime, start, change, duration);     
             
             if(element.scrollTop){
                 element.scrollTop = val;
@@ -163,7 +165,7 @@ JDK.Utils = (function(Math){
     //b = start value
     //c = change in value
     //d = duration
-    Math.easeInOutQuad = function (t, b, c, d) {
+    util.easeInOutQuad = function (t, b, c, d) {
         
         t /= d/2;
         if (t < 1){            
@@ -186,7 +188,7 @@ JDK.Utils = (function(Math){
     return util; //public util object
     
     
-}(Math));
+}());
 
 JDK.Ajax = (function(){
     "use strict";
@@ -257,8 +259,7 @@ JDK.Ajax = (function(){
         }
             
         req.onreadystatechange = function () {
-            
-            //console.log('onreadystatechange = ' +  req.readyState);
+
             
             if (req.readyState !== 4){ 
                 return;
@@ -293,100 +294,16 @@ JDK.Ajax = (function(){
 
 
 
-JDK.Page = (function(window,FastClick, util, ajax){
+JDK.Contact = (function(window,util,ajax){
     "use strict";
     
-    var
-        document = window.document,  // Use the correct document accordingly with window argument (sandbox)      
-        location = window.location,
-        $contact = document.getElementById('contact'),
-        enableTimer = 0, // Used to track the enabling of hover effects
+    var document = window.document,
+        contact = {},
         contactHash = 'message',
-        projects = util.getElementsByClassName(document.body,'project'),
-        footerNav,
-        scrollSpreed = 750,
-        formError = false,
-        i;
-        
-
-    function toggleContactHash(element){      
-        if(util.hasClass(element,'expanded')){
-             window.location.hash = contactHash;
-        }else{            
-            if(util.hasClass(document.getElementsByTagName('html')[0], 'history')){
-               history.replaceState('', document.title, location.pathname); 
-            }else{
-                window.location.hash = '';
-            }
-        }        
-     }  
-       
-   /**
-     * Removes the hover class from the body. Hover styles
-     * are reliant on this class being present
-     */
-    function removeHoverClass() {
-        //document.body.classList.remove('hover');       
-        util.removeClass(document.getElementById('top'),'hover');        
-    }
+        $contact = document.getElementById('contact');
     
-    /**
-     * Adds the hover class to the body. Hover styles
-     * are reliant on this class being present
-     */
-    function addHoverClass() {
-        //document.body.classList.add('hover');        
-        util.addClass(document.body,'hover'); 
-    }
     
-    /*
-     * Project click listener callback
-     */
-    function projectClick(e){        
-        
-        e = e||window.event;
-        var target = e.target || e.srcElement,
-            current = target,
-            element = this;
-        
-        //lte8 - "this"  refers to 'window' object, should refer to 'article .project'
-        if(element.nodeType !== 1){
-
-            if(current.tagName.toLowerCase() !== 'article'){
-               
-                while(current.tagName.toLowerCase() !== 'article'){                                
-                    current = current.parentNode;
-                }
-                
-                if(current.tagName.toLowerCase() === 'article'){
-                    element = current;
-                }
-            }
-        }
-
-
-        if(util.hasClass(element,'expanded')){
-            
-            if( !util.hasClass(target, 'bottom-expander') && !util.hasClass(target.parentNode, 'bottom-expander')) {
-                
-                return;
-            }
-            
-            util.removeClass(element,'expanded');
-            
-        }else{
-            util.addClass(element,'expanded');
-        } 
-
-        //close all other expanded projects
-        /*for(i = 0; i < projects.length; i+=1){
-            
-            if(projects[i] !== element){
-                util.removeClass(projects[i], 'expanded');
-            }
-        }*/
-    }
-
+    //private methods
     
     function handleTokenRequest(data) {        
         //add some form security
@@ -435,7 +352,183 @@ JDK.Page = (function(window,FastClick, util, ajax){
         ajax.sendRequest('php/contact.php?' + time , handleFormSubmitRequest, ajax.formalizeObject(document.getElementById('contact-form').elements), formErrorCallback);
     }
     
+    //public methods
+    contact.toggleContactHash = function(element){  
+        
+        if(!element){
+            element = $contact;
+        }
+        
+            
+        if(util.hasClass(element,'expanded')){
+             window.location.hash = contactHash;
+        }else{            
+            if(util.hasClass(document.getElementsByTagName('html')[0], 'history')){
+               history.replaceState('', document.title, location.pathname); 
+            }else{
+                window.location.hash = '';
+            }
+        }        
+     };
+     
+    contact.expand = function(){
+        if(!util.hasClass($contact,'expanded')){
+            util.addClass($contact,'expanded');
+        }
+    };
+      
     
+    //form token cookie
+    ajax.sendRequest('php/token.php',handleTokenRequest);
+    
+    util.bindEvent(document.getElementById('contact-form'), 'submit', submitForm);
+    
+    
+    //close contact if clicked outside
+    util.bindEvent(document,'click', function(e) {
+        var hasParent = false,
+            node,
+            target = e.target || e.srcElement;
+        
+        if(location.hash === ('#' + contactHash)){
+
+        
+            for(node = target; node !== document.body; node = node.parentNode){
+                if(node.id === 'contact-form' || node.id === 'contact-options'){
+                    hasParent = true;
+                    break;
+                }
+            }
+            
+            if(!hasParent){
+                util.removeClass($contact,'expanded');
+                contact.toggleContactHash($contact);
+            }
+        }
+        
+    });
+
+    //on loading page,expand contact section if hash is set
+    if(window.location.hash === '#' + contactHash){
+         util.addClass($contact,'expanded');
+    }
+    
+
+    //toggle contact
+    util.bindEvent(document.getElementById('contact-form-expander'),'click', function(e) {
+        //e.preventDefault();
+        util.preventDefault(e);
+        
+        util.toggleClass($contact, 'expanded');       
+        
+        contact.toggleContactHash($contact);
+    });
+    
+    
+    //public obj
+    return contact;
+    
+}(window, JDK.Utils, JDK.Ajax));
+
+
+
+JDK.Projects = (function(util){
+    "use strict";
+    
+    var i,
+        projects = util.getElementsByClassName(document.body,'project');
+    
+    /*
+     * Project click listener callback
+     */
+    function projectClick(e){        
+        
+        e = e||window.event;
+        var target = e.target || e.srcElement,
+            current = target,
+            element = this;
+        
+        //lte8 - "this"  refers to 'window' object, should refer to 'article .project'
+        if(element.nodeType !== 1){
+
+            if(current.tagName.toLowerCase() !== 'article'){
+               
+                while(current.tagName.toLowerCase() !== 'article'){                                
+                    current = current.parentNode;
+                }
+                
+                if(current.tagName.toLowerCase() === 'article'){
+                    element = current;
+                }
+            }
+        }
+
+
+        if(util.hasClass(element,'expanded')){
+            
+            if( !util.hasClass(target, 'bottom-expander') && !util.hasClass(target.parentNode, 'bottom-expander')) {
+                
+                return;
+            }
+            
+            util.removeClass(element,'expanded');
+            
+        }else{
+            util.addClass(element,'expanded');
+        } 
+
+        //close all other expanded projects
+        /*for(i = 0; i < projects.length; i+=1){
+            
+            if(projects[i] !== element){
+                util.removeClass(projects[i], 'expanded');
+            }
+        }*/
+    }
+    
+    
+    //loop over all projects and bind click to expand projects in initial state          
+    for(i = 0; i < projects.length; i+=1){
+
+        util.bindEvent(projects[i],'click', projectClick);
+    }
+
+    
+}(JDK.Utils));
+
+
+
+JDK.Page = (function(window,FastClick, util, contact){
+    "use strict";
+    
+    var document = window.document,  // Use the correct document accordingly with window argument
+        location = window.location,        
+        enableTimer = 0, // Used to track the enabling of hover effects               
+        footerNav,
+        scrollSpreed = 750,
+        formError = false,
+        i;
+
+       
+   /**
+     * Removes the hover class from the body. Hover styles
+     * are reliant on this class being present
+     */
+    function removeHoverClass() {
+        //document.body.classList.remove('hover');       
+        util.removeClass(document.getElementById('top'),'hover');    
+    }
+    
+    /**
+     * Adds the hover class to the body. Hover styles
+     * are reliant on this class being present
+     */
+    function addHoverClass() {
+        //document.body.classList.add('hover');        
+        util.addClass(document.body,'hover'); 
+    }
+    
+   
     
     /*
      * Attach Fastclick to body
@@ -458,56 +551,7 @@ JDK.Page = (function(window,FastClick, util, ajax){
       enableTimer = setTimeout(addHoverClass, 500);
     });
         
-    
-    //close contact if clicked outside
-    util.bindEvent(document,'click', function(e) {
-        var hasParent = false,
-            node,
-            target = e.target || e.srcElement;
-        
-        if(location.hash === ('#' + contactHash)){
 
-        
-            for(node = target; node !== document.body; node = node.parentNode){
-                if(node.id === 'contact-form' || node.id === 'contact-options'){
-                    hasParent = true;
-                    break;
-                }
-            }
-            
-            if(!hasParent){
-                util.removeClass($contact,'expanded');
-                toggleContactHash($contact);
-            }
-        }
-        
-    });
-
-    //on loading page,expand contact section if hash is set
-    if(window.location.hash === '#' + contactHash){
-         util.addClass($contact,'expanded');
-    }
-    
-    
-    //loop over all projects and bind click to expand projects in initial state          
-    for(i = 0; i < projects.length; i+=1){
-
-        util.bindEvent(projects[i],'click', projectClick);
-    }
-     
-    
-
-
-    //toggle contact
-    util.bindEvent(document.getElementById('contact-form-expander'),'click', function(e) {
-        //e.preventDefault();
-        util.preventDefault(e);
-        
-        util.toggleClass($contact, 'expanded');       
-        
-        toggleContactHash($contact);
-    });
-    
     
     /*
      * footer - scroll to and open contact
@@ -518,15 +562,13 @@ JDK.Page = (function(window,FastClick, util, ajax){
     util.bindEvent(footerNav,'click', function(e) {
         util.preventDefault(e);
 
-        toggleContactHash($contact);
+        contact.toggleContactHash();
         
         util.scrollTo(document.body, 0, scrollSpreed,function(){
             // SET A TIMEOUT...
             window.setTimeout(function(){
-                if(!util.hasClass($contact,'expanded')){
-                    util.addClass($contact,'expanded');
-                }
-                toggleContactHash($contact);
+                contact.expand();
+                contact.toggleContactHash();
             }, 300);    
         });        
     });
@@ -540,11 +582,9 @@ JDK.Page = (function(window,FastClick, util, ajax){
         util.scrollTo(document.body, 0, scrollSpreed);
     });
     
-    
-    //form token cookie
-    ajax.sendRequest('php/token.php',handleTokenRequest);
-    
-    
-    util.bindEvent(document.getElementById('contact-form'), 'submit', submitForm);
 
-}(window,FastClick, JDK.Utils, JDK.Ajax));
+}(window,FastClick, JDK.Utils, JDK.Contact));
+
+
+
+
